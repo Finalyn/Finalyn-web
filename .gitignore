@@ -1,0 +1,25 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+
+# Build artifacts (au cas où on en ajouterait plus tard)
+node_modules/
+dist/
+build/
+
+# Local files
+.env
+.env.local
+
+# Claude / dev session files
+.claude/
+
+# Source files Photoshop (trop lourds pour GitHub, non utilis�s par le site)
+*.psd
