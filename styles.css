@@ -287,7 +287,9 @@ button { font: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   gap: 6px;
+  width: 100%;
   max-width: 480px;
+  min-width: 0;
   padding: 5px 14px 5px 0;
   background: var(--white);
   border: 1px solid var(--ink-10);
@@ -491,6 +493,24 @@ button { font: inherit; cursor: pointer; }
   .hero__sub { font-size: 14.5px; }
   .hero__cta { gap: 12px; flex-wrap: wrap; }
   .site-header { padding: 18px 24px; }
+
+  /* Form email : stack vertical pour ne jamais déborder */
+  .hero__prompt {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px;
+  }
+  .hero__prompt-input {
+    width: 100%;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .hero__prompt-send {
+    width: 100%;
+    justify-content: center;
+    height: 44px;
+  }
   .carousel { --mw: 340px; --mh: 360px; --gap: 24px; }
   .hero__visual { min-height: 420px; }
   /* Sur mobile : slot beaucoup plus petit → scales réduits pour pas que ça coupe */
