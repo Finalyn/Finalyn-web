@@ -3,45 +3,85 @@
 
   // ---------- Réalisations : popup au clic sur card ----------
   const WORKS = {
-    'pasta-mario': {
-      img: 'https://picsum.photos/seed/finalyn-pasta-mario/1200/675',
+    'max2c4d': {
+      img: 'https://finalyn.com/attached_assets/max2c4d-hero.webp',
+      tag: 'Plugin 3D',
+      title: 'MAX2C4D',
+      desc: 'Plugin professionnel de conversion de scènes 3ds Max (Corona & V-Ray) vers Cinema 4D natif. Indispensable aux studios d\'archviz et artistes 3D travaillant entre les deux logiciels. Développement complet du plugin et du site vitrine par Finalyn Studio.',
+      type: 'Plugin + Site',
+      stack: 'C++ · Python · 3ds Max & C4D SDK',
+      year: '2026',
+      link: 'https://max2c4d.com',
+    },
+    'pulci2': {
+      img: 'https://finalyn.com/attached_assets/pulci2-after-desktop.webp',
       tag: 'Restaurant',
-      title: 'Pasta Mario',
-      desc: 'Trattoria italienne à Lausanne. Site vitrine moderne avec carte digitale, galerie photo professionnelle et réservation de table en 2 clics. Intégration Google Maps, SEO local optimisé pour attirer les habitants du quartier.',
-      delay: '7 jours',
-      stack: 'Vanilla HTML/CSS/JS + Stripe',
+      title: 'Pulci2',
+      desc: 'Refonte complète du site vitrine de Pulci2, restaurant & pizzeria italienne à Rolle. Site multilingue FR/EN/IT, réduction des coûts d\'hébergement et d\'emails.',
+      type: 'Refonte',
+      stack: 'HTML5 · CSS3 · JS · i18n',
       year: '2026',
-      link: 'https://pasta-mario.ch',
+      link: 'https://pulci2.ch',
     },
-    'atelier-celeste': {
-      img: 'https://picsum.photos/seed/finalyn-atelier-celeste/1200/675',
-      tag: 'E-commerce',
-      title: 'Atelier Céleste',
-      desc: 'Bijouterie indépendante à Genève. Boutique en ligne propre avec catalogue de pièces uniques, paiement Stripe sécurisé, gestion de stock simple et back-office léger pour la créatrice.',
-      delay: '3 semaines',
-      stack: 'Vanilla + Stripe + Sanity',
-      year: '2025',
-      link: 'https://atelier-celeste.ch',
-    },
-    'novia': {
-      img: 'https://picsum.photos/seed/finalyn-novia/1200/675',
-      tag: 'SaaS / MVP',
-      title: 'Novia App',
-      desc: 'MVP pour une startup romande, livré à temps pour une démo investisseurs réussie. Authentification, base de données Supabase, dashboard métier, déploiement cloud, le tout en 4 semaines.',
-      delay: '4 semaines',
-      stack: 'Vue 3 + Supabase + Vercel',
-      year: '2025',
-      link: 'https://novia-app.ch',
-    },
-    'solidaria': {
-      img: 'https://picsum.photos/seed/finalyn-solidaria/1200/675',
-      tag: 'Association',
-      title: 'Solidaria',
-      desc: 'Association romande d\'aide sociale. Site clair présentant la mission, espace dons sécurisés avec Stripe, formulaire d\'adhésion bénévole et agenda d\'événements à venir.',
-      delay: '10 jours',
-      stack: 'Vanilla + Stripe',
+    'townproject': {
+      img: 'https://finalyn.com/attached_assets/IMG_5087_1768207285302.webp',
+      tag: 'Construction',
+      title: 'TownProject',
+      desc: 'Site vitrine élégant pour TownProject Sàrl, entreprise suisse de construction et rénovation. Deux gammes présentées : Normal et Signature.',
+      type: 'Vitrine',
+      stack: 'React · TypeScript · Tailwind · Framer Motion',
       year: '2026',
-      link: 'https://solidaria.org',
+      link: 'https://townproject.ch',
+    },
+    'bfc-app': {
+      img: 'https://finalyn.com/attached_assets/IMG_1725_1768155846009.webp',
+      tag: 'App métier',
+      title: 'BFC APP',
+      desc: 'Application développée pour BFC Sàrl afin de digitaliser leur processus de commande. Avant : papier, Excel et Word. Maintenant : tout en un clic depuis le smartphone.',
+      type: 'PWA',
+      stack: 'React · TS · PWA · Node · PostgreSQL',
+      year: '2026',
+      link: '',
+    },
+    'arkia': {
+      img: 'https://finalyn.com/attached_assets/image_1768065010993.webp',
+      tag: 'SaaS / IA',
+      title: 'Arkia',
+      desc: 'Plateforme SaaS d\'IA générative pour l\'architecture. Du croquis au rendu photoréaliste en quelques secondes. Développement, stratégie et branding par Finalyn.',
+      type: 'SaaS',
+      stack: 'React · Python · IA générative · GPU Cloud',
+      year: '2025',
+      link: 'https://arkia.app',
+    },
+    'brandify': {
+      img: 'https://finalyn.com/attached_assets/image_1765189783731.webp',
+      tag: 'Outil web',
+      title: 'Brandify',
+      desc: 'Application web pour ajouter automatiquement votre logo ou filigrane sur vos images. Design, UX/UI et développement par Finalyn.',
+      type: 'Outil web',
+      stack: 'JS · HTML5 Canvas · Web APIs',
+      year: '2025',
+      link: '',
+    },
+    'cityguess': {
+      img: 'https://finalyn.com/attached_assets/image_1765190009891.webp',
+      tag: 'Jeu en ligne',
+      title: 'CityGuess',
+      desc: 'Jeu de géographie multijoueur avec duels, défis quotidiens et abonnement premium. Branding, UX/UI et développement par Finalyn.',
+      type: 'Jeu',
+      stack: 'React · Mapbox · Node · PostgreSQL · Stripe',
+      year: '2025',
+      link: 'https://cityguess.com',
+    },
+    'purcheez': {
+      img: 'https://finalyn.com/attached_assets/purcheez_hero.webp',
+      tag: 'FinTech',
+      title: 'Purcheez',
+      desc: 'Plateforme de paiement en escrow pour freelances et prestataires. Branding, automatisation, stratégie et développement par Finalyn.',
+      type: 'FinTech',
+      stack: 'React · Node · TS · PostgreSQL · Stripe',
+      year: '2025',
+      link: '',
     },
   };
 
@@ -70,10 +110,20 @@
       setText('[data-modal-tag]', data.tag);
       setText('[data-modal-title]', data.title);
       setText('[data-modal-desc]', data.desc);
-      setText('[data-modal-delay]', data.delay);
+      setText('[data-modal-type]', data.type);
       setText('[data-modal-stack]', data.stack);
       setText('[data-modal-year]', data.year);
-      setAttr('[data-modal-link]', 'href', data.link);
+
+      // Cache "Voir le site" si pas de lien live
+      const linkEl = workModal.querySelector('[data-modal-link]');
+      if (linkEl) {
+        if (data.link) {
+          linkEl.href = data.link;
+          linkEl.style.display = '';
+        } else {
+          linkEl.style.display = 'none';
+        }
+      }
 
       workModal.showModal();
 
