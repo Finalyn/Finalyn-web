@@ -111,6 +111,24 @@ button { font: inherit; cursor: pointer; }
 }
 .btn--dark:hover::after { animation-duration: 1.6s; }
 
+.btn--quiet {
+  background: var(--electric-soft);
+  color: var(--electric-deep);
+  border: 1.5px solid var(--electric);
+  box-shadow: 0 6px 18px -8px rgba(37, 99, 235, 0.35);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s var(--ease-out-expo),
+    box-shadow 0.25s var(--ease-out-expo);
+}
+.btn--quiet:hover {
+  background: var(--electric);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px -10px rgba(37, 99, 235, 0.55);
+}
+
 @keyframes btn-shine {
   0%        { transform: translateX(-220%) skewX(-18deg); }
   18%, 100% { transform: translateX(820%)  skewX(-18deg); }
