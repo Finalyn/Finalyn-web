@@ -640,11 +640,92 @@
           </div>
 
           <div class="audit__widget" id="audit-widget">
-            <!-- Calendly inline widget — remplace YOUR-CALENDLY-USER/30min par ton lien -->
-            <div class="calendly-inline-widget"
-                 data-url="https://calendly.com/YOUR-CALENDLY-USER/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=2563eb"
-                 style="min-width:320px;height:560px;"></div>
-            <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <div class="cal" id="auditCal" data-cal role="region" aria-label="Réservation de l'audit gratuit">
+              <header class="cal-header">
+                <div class="cal-title">Réservez votre audit · 30 min</div>
+                <div class="cal-sub">Visio · Lundi-Vendredi · dès 8 h (heure de Zurich)</div>
+              </header>
+
+              <div class="cal-nav">
+                <button type="button" class="cal-arrow" data-dir="-1" aria-label="Mois précédent">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 4 6 8 10 12"></polyline></svg>
+                </button>
+                <span class="cal-month">—</span>
+                <button type="button" class="cal-arrow" data-dir="1" aria-label="Mois suivant">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 4 10 8 6 12"></polyline></svg>
+                </button>
+              </div>
+
+              <div class="cal-grid-head" aria-hidden="true">
+                <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+              </div>
+              <div class="cal-grid" role="grid"></div>
+
+              <div class="cal-slots" aria-live="polite">
+                <span class="cal-slots-label">Choisissez un créneau</span>
+                <div class="cal-slots-list">
+                  <button type="button" class="cal-slot" data-time="08:00">08:00</button>
+                  <button type="button" class="cal-slot" data-time="09:00">09:00</button>
+                  <button type="button" class="cal-slot" data-time="10:00">10:00</button>
+                  <button type="button" class="cal-slot" data-time="11:00">11:00</button>
+                  <button type="button" class="cal-slot" data-time="14:00">14:00</button>
+                  <button type="button" class="cal-slot" data-time="15:00">15:00</button>
+                  <button type="button" class="cal-slot" data-time="16:00">16:00</button>
+                  <button type="button" class="cal-slot" data-time="17:00">17:00</button>
+                </div>
+              </div>
+
+              <button type="button" class="cal-cta" disabled>
+                <span class="cal-cta-label">Sélectionnez un jour</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="13 6 19 12 13 18"></polyline>
+                </svg>
+              </button>
+
+              <form class="cal-form" novalidate aria-label="Vos coordonnées pour la visio">
+                <button type="button" class="cal-form-back" aria-label="Revenir au calendrier">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="10 4 6 8 10 12"></polyline></svg>
+                  <span>Modifier le créneau</span>
+                </button>
+                <p class="cal-form-recap">—</p>
+                <div class="cal-form-row">
+                  <label class="cal-input">
+                    <span>Prénom</span>
+                    <input type="text" name="firstname" autocomplete="given-name" required />
+                  </label>
+                  <label class="cal-input">
+                    <span>Nom</span>
+                    <input type="text" name="lastname" autocomplete="family-name" required />
+                  </label>
+                </div>
+                <label class="cal-input">
+                  <span>E-mail</span>
+                  <input type="email" name="email" autocomplete="email" required />
+                </label>
+                <label class="cal-input">
+                  <span>Projet (en quelques mots)</span>
+                  <input type="text" name="project" autocomplete="off" required />
+                </label>
+                <button type="submit" class="cal-cta cal-cta-final">
+                  <span class="cal-cta-label">Confirmer la réservation</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="13 6 19 12 13 18"></polyline>
+                  </svg>
+                </button>
+                <p class="cal-form-trust">Vos données restent en Suisse / UE. Utilisées uniquement pour organiser l'audit.</p>
+              </form>
+
+              <div class="cal-success" role="status" aria-live="polite">
+                <div class="cal-success-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h4>Audit réservé.</h4>
+                <p>—</p>
+                <p class="cal-success-note">Votre client mail s'est ouvert avec votre demande pré-remplie. Envoyez-le, on revient vers vous sous 24 h.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -492,4 +492,168 @@
       window.location.href = `mailto:contact@finalyn.com?subject=${subject}&body=${body}`;
     });
   }
+
+  // ---------- Calendrier custom (audit gratuit) ----------
+  function initCalendar(root) {
+    if (!root) return;
+    const grid     = root.querySelector('.cal-grid');
+    const monthEl  = root.querySelector('.cal-month');
+    const prevBtn  = root.querySelector('.cal-arrow[data-dir="-1"]');
+    const nextBtn  = root.querySelector('.cal-arrow[data-dir="1"]');
+    const slotsBox = root.querySelector('.cal-slots');
+    const slotList = root.querySelector('.cal-slots-list');
+    const ctaBtn   = root.querySelector('.cal-cta:not(.cal-cta-final)');
+    const ctaLabel = ctaBtn ? ctaBtn.querySelector('.cal-cta-label') : null;
+    if (!grid || !monthEl || !prevBtn || !nextBtn || !slotsBox || !slotList || !ctaBtn || !ctaLabel) return;
+
+    const formEl       = root.querySelector('.cal-form');
+    const formRecap    = root.querySelector('.cal-form-recap');
+    const formBack     = root.querySelector('.cal-form-back');
+    const firstName    = root.querySelector('input[name="firstname"]');
+    const lastName     = root.querySelector('input[name="lastname"]');
+    const emailInput   = root.querySelector('input[name="email"]');
+    const projectInput = root.querySelector('input[name="project"]');
+    const successRecap = root.querySelector('.cal-success p:not(.cal-success-note)');
+
+    const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    const dayShort   = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    let view = new Date(today.getFullYear(), today.getMonth(), 1);
+    let selectedDay = null;
+    let selectedSlot = null;
+
+    function render() {
+      grid.innerHTML = '';
+      monthEl.textContent = monthNames[view.getMonth()] + ' ' + view.getFullYear();
+      const year = view.getFullYear(), month = view.getMonth();
+      const first = new Date(year, month, 1);
+      const last = new Date(year, month + 1, 0);
+      const startCol = (first.getDay() + 6) % 7;
+      for (let i = 0; i < startCol; i++) {
+        const blank = document.createElement('span');
+        blank.className = 'cal-day cal-day-blank';
+        grid.appendChild(blank);
+      }
+      for (let d = 1; d <= last.getDate(); d++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cal-day';
+        btn.textContent = d;
+        const date = new Date(year, month, d);
+        const dow = date.getDay();
+        const isWeekend = (dow === 0 || dow === 6);
+        const isPast = date < today;
+        if (isPast || isWeekend) { btn.disabled = true; btn.classList.add('cal-day-disabled'); }
+        if (date.getTime() === today.getTime()) btn.classList.add('cal-day-today');
+        if (selectedDay && date.getTime() === selectedDay.getTime()) btn.classList.add('cal-day-selected');
+        btn.addEventListener('click', () => pickDay(date));
+        grid.appendChild(btn);
+      }
+      const thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+      prevBtn.disabled = (view.getTime() <= thisMonth.getTime());
+    }
+
+    function pickDay(d) {
+      selectedDay = d; selectedSlot = null;
+      slotList.querySelectorAll('.cal-slot').forEach((s) => s.classList.remove('is-selected'));
+      slotsBox.classList.add('is-open');
+      render();
+      updateCta();
+    }
+
+    function pickSlot(btn) {
+      slotList.querySelectorAll('.cal-slot').forEach((s) => s.classList.remove('is-selected'));
+      btn.classList.add('is-selected');
+      selectedSlot = btn.getAttribute('data-time');
+      updateCta();
+    }
+
+    function updateCta() {
+      if (selectedDay && selectedSlot) {
+        ctaBtn.disabled = false;
+        const d = selectedDay;
+        const label = dayShort[d.getDay()] + ' ' + d.getDate() + ' ' + monthNames[d.getMonth()].toLowerCase() + ' · ' + selectedSlot;
+        ctaLabel.textContent = 'Confirmer · ' + label;
+      } else if (selectedDay) {
+        ctaBtn.disabled = true; ctaLabel.textContent = 'Choisissez un créneau';
+      } else {
+        ctaBtn.disabled = true; ctaLabel.textContent = 'Sélectionnez un jour';
+      }
+    }
+
+    function formatRecap() {
+      if (!selectedDay) return '';
+      return dayShort[selectedDay.getDay()] + ' ' + selectedDay.getDate() + ' ' + monthNames[selectedDay.getMonth()].toLowerCase() + ' · ' + selectedSlot;
+    }
+
+    function formatRecapFull() {
+      if (!selectedDay) return '';
+      const d = selectedDay;
+      const dayName = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'][d.getDay()];
+      return `${dayName} ${d.getDate()} ${monthNames[d.getMonth()].toLowerCase()} ${d.getFullYear()} à ${selectedSlot} (heure de Zurich)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      view = new Date(view.getFullYear(), view.getMonth() - 1, 1);
+      const thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+      if (view < thisMonth) view = thisMonth;
+      render();
+    });
+    nextBtn.addEventListener('click', () => {
+      view = new Date(view.getFullYear(), view.getMonth() + 1, 1);
+      render();
+    });
+    slotList.querySelectorAll('.cal-slot').forEach((s) => {
+      s.addEventListener('click', () => pickSlot(s));
+    });
+
+    ctaBtn.addEventListener('click', () => {
+      if (ctaBtn.disabled || !selectedDay || !selectedSlot) return;
+      if (formRecap) formRecap.textContent = 'Visio · ' + formatRecap() + ' (30 min)';
+      root.classList.add('is-form');
+      if (firstName) setTimeout(() => firstName.focus(), 250);
+    });
+
+    if (formBack) {
+      formBack.addEventListener('click', () => root.classList.remove('is-form'));
+    }
+
+    if (formEl) {
+      formEl.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fn = firstName.value.trim();
+        const ln = lastName.value.trim();
+        const em = emailInput.value.trim();
+        const pj = projectInput.value.trim();
+        if (!fn || !ln || !em || !pj) return;
+
+        // Construit le mailto: avec tous les détails de la réservation
+        const subject = encodeURIComponent(`Audit gratuit · ${formatRecap()}`);
+        const body = encodeURIComponent(
+          `Bonjour Finalyn,\n\n` +
+          `Je souhaite réserver un audit gratuit (30 min en visio).\n\n` +
+          `Créneau souhaité : ${formatRecapFull()}\n\n` +
+          `Prénom : ${fn}\n` +
+          `Nom : ${ln}\n` +
+          `Email : ${em}\n` +
+          `Mon projet : ${pj}\n\n` +
+          `Merci de confirmer la disponibilité et envoyer le lien visio.\n\n` +
+          `Bien cordialement,\n${fn} ${ln}`
+        );
+        window.location.href = `mailto:contact@finalyn.com?subject=${subject}&body=${body}`;
+
+        // Affiche l'écran de succès
+        if (successRecap) {
+          successRecap.textContent = `${fn}, votre demande pour le ${formatRecap()} est prête.`;
+        }
+        root.classList.remove('is-form');
+        root.classList.add('is-done');
+      });
+    }
+
+    render();
+  }
+
+  document.querySelectorAll('[data-cal]').forEach(initCalendar);
 })();
