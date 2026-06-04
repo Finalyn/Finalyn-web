@@ -2279,6 +2279,125 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* ============================================
+   STACK MAÎTRISÉE — marquee logos
+   ============================================ */
+.stack {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 80px 0 60px;
+}
+.stack__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+.stack__head {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+.stack__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--electric);
+  padding: 6px 14px;
+  background: var(--electric-soft);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+.stack__title {
+  font-family: var(--font-body);
+  font-size: clamp(32px, 3.4vw, 52px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+.stack__accent {
+  background: linear-gradient(92deg, #60A5FA 0%, #2563EB 60%, #1D4FD8 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.stack__sub {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-65);
+  margin: 0;
+}
+
+.logo-marquee {
+  overflow: hidden;
+  padding: 14px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+.logo-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 48px;
+  animation: stackMarquee 38s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.logo-marquee--reverse .logo-track {
+  animation-direction: reverse;
+}
+.logo-marquee:hover .logo-track {
+  animation-play-state: paused;
+}
+@keyframes stackMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.stack__logo {
+  height: 36px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  opacity: 0.92;
+  flex-shrink: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.stack__logo:hover {
+  opacity: 1;
+  transform: scale(1.12);
+}
+.stack__note {
+  margin: 32px auto 0;
+  max-width: 580px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--ink-50);
+  padding: 0 24px;
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 880px) {
+  .stack { padding: 60px 0 40px; }
+  .stack__head { margin-bottom: 32px; }
+  .stack__title { font-size: clamp(26px, 7vw, 36px); }
+  .stack__sub { font-size: 14.5px; }
+  .logo-track { gap: 36px; animation-duration: 28s; }
+  .stack__logo { height: 28px; max-width: 100px; }
+  .stack__note { margin-top: 24px; font-size: 12.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-track { animation: none; }
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 .footer {
