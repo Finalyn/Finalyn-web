@@ -31,7 +31,37 @@
           <li><a href="#realisations">Réalisations</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+
+        <!-- Burger (mobile only) -->
+        <button type="button" class="nav__burger" data-burger aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navPanel">
+          <span class="nav__burger-bar"></span>
+          <span class="nav__burger-bar"></span>
+          <span class="nav__burger-bar"></span>
+        </button>
       </nav>
+
+      <!-- Panel slide-from-left (mobile only) -->
+      <div class="nav__backdrop" data-burger-backdrop aria-hidden="true"></div>
+      <aside class="nav__panel" id="navPanel" data-nav-panel aria-hidden="true">
+        <div class="nav__panel-head">
+          <span class="nav__panel-brand">finalyn<span class="nav__logo-accent">.web</span></span>
+          <button type="button" class="nav__panel-close" data-burger-close aria-label="Fermer le menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <ul class="nav__panel-links">
+          <li><a href="#services" data-burger-link>Services</a></li>
+          <li><a href="#cas-usage" data-burger-link>Cas d'usage</a></li>
+          <li><a href="#realisations" data-burger-link>Réalisations</a></li>
+          <li><a href="#stack" data-burger-link>Stack maîtrisée</a></li>
+          <li><a href="#audit" data-burger-link>Audit gratuit</a></li>
+          <li><a href="#faq" data-burger-link>FAQ</a></li>
+          <li><a href="#contact" data-burger-link>Contact</a></li>
+        </ul>
+        <div class="nav__panel-foot">
+          <a href="mailto:contact@finalyn.com" class="nav__panel-mail">contact@finalyn.com</a>
+        </div>
+      </aside>
     </header>
 
     <main>

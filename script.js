@@ -1,29 +1,28 @@
 (() => {
   'use strict';
 
-  // ---------- Scroll lock pour modals (préserve la position de scroll) ----------
-  let lockedScrollY = 0;
+  // ---------- Scroll lock pour modals (overflow hidden — ne déplace pas le body) ----------
   let lockCount = 0;
+  let savedPaddingRight = '';
   function lockBodyScroll() {
     if (lockCount === 0) {
-      lockedScrollY = window.scrollY || window.pageYOffset || 0;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${lockedScrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
+      // Compense la largeur de la scrollbar pour éviter le saut de layout
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      savedPaddingRight = document.body.style.paddingRight;
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     }
     lockCount++;
   }
   function unlockBodyScroll() {
     lockCount = Math.max(0, lockCount - 1);
     if (lockCount === 0) {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.width = '';
-      window.scrollTo(0, lockedScrollY);
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.style.paddingRight = savedPaddingRight;
     }
   }
 
@@ -822,6 +821,45 @@
   }
 
   document.querySelectorAll('[data-cal]').forEach(initCalendar);
+
+  // ---------- Burger menu mobile ----------
+  (() => {
+    const burger = document.querySelector('[data-burger]');
+    const panel = document.querySelector('[data-nav-panel]');
+    const backdrop = document.querySelector('[data-burger-backdrop]');
+    const closeBtn = document.querySelector('[data-burger-close]');
+    const links = document.querySelectorAll('[data-burger-link]');
+    if (!burger || !panel || !backdrop) return;
+
+    const open = () => {
+      panel.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+      panel.setAttribute('aria-hidden', 'false');
+      lockBodyScroll();
+    };
+    const close = () => {
+      panel.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+      unlockBodyScroll();
+    };
+
+    burger.addEventListener('click', () => {
+      if (panel.classList.contains('is-open')) close();
+      else open();
+    });
+    backdrop.addEventListener('click', close);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    links.forEach(a => a.addEventListener('click', () => {
+      // Laisse le scroll vers l'ancre se faire, puis ferme
+      setTimeout(close, 60);
+    }));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) close();
+    });
+  })();
 
   // ---------- Services accordion CTA → pré-remplit le type + scroll vers l'audit ----------
   document.addEventListener('click', (e) => {
