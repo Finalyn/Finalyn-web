@@ -427,6 +427,45 @@
         'Livraison 1-2 semaines',
       ],
     },
+    independant: {
+      num: '05',
+      title: 'Vous êtes indépendant·e',
+      lede: 'Votre prochain client vous googlise avant de vous appeler. Un site qui rassure, qui montre votre travail et qui prend les RDV pour vous.',
+      items: [
+        'Portfolio / réalisations',
+        'Page tarifs claire',
+        'Prise de RDV en ligne',
+        'Témoignages clients',
+        'Paiement Stripe',
+        'Livraison 7-10 jours',
+      ],
+    },
+    medecin: {
+      num: '06',
+      title: 'Vous êtes médecin ou cabinet',
+      lede: 'Vos patients veulent l\'essentiel : horaires, équipe, accès, prise de RDV. Un site rassurant, conforme et facile à mettre à jour.',
+      items: [
+        'Présentation équipe',
+        'Spécialités & soins',
+        'Prise de RDV (Doctolib / OneDoc)',
+        'Plan d\'accès & horaires',
+        'Conformité données patient',
+        'Livraison 10-14 jours',
+      ],
+    },
+    coach: {
+      num: '07',
+      title: 'Vous êtes coach ou formateur·trice',
+      lede: 'Vous voulez vendre vos programmes, capter des leads et automatiser l\'onboarding. Un site qui convertit, pas une simple vitrine.',
+      items: [
+        'Pages programmes',
+        'Témoignages & résultats',
+        'Tunnel inscription',
+        'Paiement Stripe (one-shot ou abonnement)',
+        'Lien plateformes (Teachable, Notion)',
+        'Livraison 2-3 semaines',
+      ],
+    },
   };
 
   const usecasesArc = document.querySelector('[data-usecases]');
@@ -491,6 +530,40 @@
       );
       window.location.href = `mailto:contact@finalyn.com?subject=${subject}&body=${body}`;
     });
+  }
+
+  // ---------- Devshow : slider auto-rotation mockups (mobile) ----------
+  const devshow = document.querySelector('[data-devshow]');
+  if (devshow) {
+    const track = devshow.querySelector('[data-devshow-track]');
+    const dots = devshow.querySelectorAll('[data-devshow-dots] .devshow__dot');
+    const slides = track ? track.children.length : 0;
+    if (track && slides > 0 && dots.length === slides) {
+      let idx = 0;
+      const SLIDE_MS = 2000;
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const goTo = (i) => {
+        idx = (i + slides) % slides;
+        track.style.transform = `translateX(-${idx * 25}%)`;
+        dots.forEach((d, j) => d.classList.toggle('is-active', j === idx));
+      };
+
+      // Démarre l'auto-rotation seulement si la section est visible (mobile) et anim non bloquée
+      const startAuto = () => {
+        if (reduced) return;
+        return setInterval(() => goTo(idx + 1), SLIDE_MS);
+      };
+
+      let timer = null;
+      const mq = window.matchMedia('(max-width: 880px)');
+      const sync = () => {
+        if (timer) { clearInterval(timer); timer = null; }
+        if (mq.matches) timer = startAuto();
+      };
+      sync();
+      mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync);
+    }
   }
 
   // ---------- Calendrier custom (audit gratuit) ----------
