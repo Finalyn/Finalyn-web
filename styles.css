@@ -895,17 +895,27 @@ button { font: inherit; cursor: pointer; }
 }
 .services__list li:last-child { border-bottom: 1px solid var(--ink-10); }
 
+/* L'accordéon utilise <details><summary> : reset des styles natifs */
 .services__item {
+  display: block;
+  color: inherit;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+.services__item[open] {
+  background: rgba(37, 99, 235, 0.04);
+}
+.services__item-summary {
   display: flex;
   align-items: center;
   gap: 24px;
   padding: 28px 8px;
-  color: inherit;
-  transition: padding 0.3s var(--ease-out-expo), background 0.3s ease;
-  border-radius: 12px;
+  list-style: none;
+  cursor: pointer;
+  transition: padding 0.3s var(--ease-out-expo);
 }
-.services__item:hover {
-  background: rgba(37, 99, 235, 0.03);
+.services__item-summary::-webkit-details-marker { display: none; }
+.services__item:not([open]) .services__item-summary:hover {
   padding-left: 20px;
 }
 .services__item-body {
@@ -932,12 +942,78 @@ button { font: inherit; cursor: pointer; }
   height: 24px;
   color: var(--ink-50);
   flex-shrink: 0;
-  transition: transform 0.3s var(--ease-out-expo), color 0.3s ease;
+  transition: transform 0.4s var(--ease-out-expo), color 0.3s ease;
 }
-.services__item:hover .services__item-arrow {
+.services__item:not([open]) .services__item-summary:hover .services__item-arrow {
   color: var(--electric);
   transform: translateX(6px);
 }
+.services__item[open] .services__item-arrow {
+  color: var(--electric);
+  transform: rotate(90deg);
+}
+
+/* Contenu déplié */
+.services__item-detail {
+  padding: 0 8px 28px;
+  animation: services-detail-in 0.35s var(--ease-out-expo);
+}
+@keyframes services-detail-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+.services__item-detail > p {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-65);
+  max-width: 760px;
+}
+.services__item-features {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 24px;
+}
+.services__item-features li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.services__item-features li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--electric);
+}
+.services__item-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.services__item-meta-row > span {
+  font-size: 14px;
+  color: var(--ink-65);
+}
+.services__item-meta-row > span strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.services__item-cta {
+  padding: 12px 22px;
+  font-size: 14px;
+}
+.services__item-cta svg { width: 14px; height: 14px; }
 
 @media (max-width: 880px) {
   .services { padding: 50px 0 70px; }
@@ -946,11 +1022,17 @@ button { font: inherit; cursor: pointer; }
   .services__title,
   .services__list { padding-left: 28px; padding-right: 28px; }
   .services__title { font-size: 24px; margin-bottom: 22px; }
-  .services__item { padding: 18px 4px; gap: 14px; }
-  .services__item:hover { padding-left: 12px; }
+  .services__item-summary { padding: 18px 4px; gap: 14px; }
+  .services__item:not([open]) .services__item-summary:hover { padding-left: 12px; }
   .services__item-title { font-size: 17px; }
   .services__item-desc { font-size: 13px; }
   .services__item-arrow { width: 18px; height: 18px; }
+  .services__item-detail { padding: 0 4px 22px; }
+  .services__item-detail > p { font-size: 13.5px; line-height: 1.55; }
+  .services__item-features { grid-template-columns: 1fr; gap: 6px; margin-bottom: 18px; }
+  .services__item-features li { font-size: 13px; }
+  .services__item-meta-row { flex-direction: column; align-items: stretch; gap: 12px; }
+  .services__item-cta { width: 100%; }
 }
 
 /* ============================================
@@ -1466,7 +1548,8 @@ button { font: inherit; cursor: pointer; }
   color: var(--ink-65);
   letter-spacing: -0.005em;
 }
-.cal-input input {
+.cal-input input,
+.cal-input select {
   font-family: inherit;
   font-size: 14px;
   color: var(--ink);
@@ -1477,7 +1560,16 @@ button { font: inherit; cursor: pointer; }
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.cal-input input:focus {
+.cal-input select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%230f0f0f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M2 2l4 4 4-4'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+.cal-input input:focus,
+.cal-input select:focus {
   border-color: var(--electric);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
@@ -1706,10 +1798,10 @@ button { font: inherit; cursor: pointer; }
 /* ----- Grille cards de réalisations ----- */
 .works__grid {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1080px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  gap: 24px;
 }
 
 .work-card {
@@ -1768,15 +1860,15 @@ button { font: inherit; cursor: pointer; }
 }
 
 .work-card__body {
-  padding: 22px 24px 24px;
+  padding: 18px 18px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .work-card__name {
   font-family: var(--font-body);
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -1784,8 +1876,8 @@ button { font: inherit; cursor: pointer; }
 }
 
 .work-card__desc {
-  font-size: 14.5px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.45;
   color: var(--ink-65);
   margin: 0;
 }

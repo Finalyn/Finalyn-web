@@ -1,6 +1,32 @@
 (() => {
   'use strict';
 
+  // ---------- Scroll lock pour modals (préserve la position de scroll) ----------
+  let lockedScrollY = 0;
+  let lockCount = 0;
+  function lockBodyScroll() {
+    if (lockCount === 0) {
+      lockedScrollY = window.scrollY || window.pageYOffset || 0;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+    }
+    lockCount++;
+  }
+  function unlockBodyScroll() {
+    lockCount = Math.max(0, lockCount - 1);
+    if (lockCount === 0) {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      window.scrollTo(0, lockedScrollY);
+    }
+  }
+
   // ---------- Réalisations : popup au clic sur card ----------
   const WORKS = {
     'max2c4d': {
@@ -125,6 +151,7 @@
         }
       }
 
+      lockBodyScroll();
       workModal.showModal();
 
       const body = workModal.querySelector('.work-modal__body');
@@ -140,6 +167,7 @@
       if (key) open(key);
     });
 
+    workModal.addEventListener('close', unlockBodyScroll);
     if (closeBtn) closeBtn.addEventListener('click', () => workModal.close());
 
     // Click sur le backdrop ferme
@@ -485,6 +513,7 @@
       titleEl.textContent = data.title;
       ledeEl.textContent = data.lede;
       listEl.innerHTML = data.items.map((it) => `<li>${it}</li>`).join('');
+      lockBodyScroll();
       usecasesModal.showModal();
       // Reset scroll + focus sur le close pour éviter scroll auto
       const body = usecasesModal.querySelector('.usecases__modal-body');
@@ -498,6 +527,7 @@
       openCase(card.dataset.case);
     });
 
+    usecasesModal.addEventListener('close', unlockBodyScroll);
     if (closeBtn) closeBtn.addEventListener('click', () => usecasesModal.close());
 
     // Click backdrop ferme
@@ -510,6 +540,69 @@
       if (!inDialog) usecasesModal.close();
     });
   }
+
+  // ---------- Cas d'usage : infinite swipe mobile (clones + téléport) ----------
+  (() => {
+    const arc = document.querySelector('[data-usecases]');
+    if (!arc) return;
+    const mq = window.matchMedia('(max-width: 880px)');
+    if (!mq.matches) return;
+
+    const origCards = Array.from(arc.querySelectorAll('.usecard'));
+    const n = origCards.length;
+    if (n < 2) return;
+
+    // Triplicate : [originals A][originals B (centre, visible au start)][originals C]
+    // Téléport invisible quand l'utilisateur scroll dans A ou C.
+    const cloneSet = (suffix) => origCards.map(c => {
+      const cl = c.cloneNode(true);
+      cl.classList.add('is-clone');
+      cl.dataset.cloneSet = suffix;
+      return cl;
+    });
+    cloneSet('before').reverse().forEach(cl => arc.insertBefore(cl, arc.firstChild));
+    cloneSet('after').forEach(cl => arc.appendChild(cl));
+
+    const measure = () => {
+      const first = arc.querySelector('.usecard');
+      if (!first) return null;
+      const cardW = first.offsetWidth;
+      const gap = parseFloat(getComputedStyle(arc).gap) || 0;
+      return { itemSize: cardW + gap, sectionWidth: n * (cardW + gap) };
+    };
+
+    // Centre le scroll sur la 1ère carte du set du milieu
+    const center = () => {
+      const m = measure();
+      if (!m) return;
+      arc.scrollLeft = m.sectionWidth;
+    };
+    center();
+    // Re-centre après que les images aient chargé (changement de largeur possible)
+    window.addEventListener('load', center, { once: true });
+
+    let isAdjusting = false;
+    let timer = null;
+    arc.addEventListener('scroll', () => {
+      if (isAdjusting) return;
+      if (timer) clearTimeout(timer);
+      // Attend la fin du momentum scroll avant de téléporter
+      timer = setTimeout(() => {
+        const m = measure();
+        if (!m) return;
+        const sl = arc.scrollLeft;
+        if (sl < m.sectionWidth * 0.5) {
+          isAdjusting = true;
+          arc.scrollLeft = sl + m.sectionWidth;
+          requestAnimationFrame(() => { isAdjusting = false; });
+        } else if (sl > m.sectionWidth * 2.5) {
+          isAdjusting = true;
+          arc.scrollLeft = sl - m.sectionWidth;
+          requestAnimationFrame(() => { isAdjusting = false; });
+        }
+      }, 80);
+    }, { passive: true });
+  })();
 
   // ---------- Hero prompt form ----------
   const form = document.querySelector('[data-hero-form]');
@@ -585,7 +678,7 @@
     const firstName    = root.querySelector('input[name="firstname"]');
     const lastName     = root.querySelector('input[name="lastname"]');
     const emailInput   = root.querySelector('input[name="email"]');
-    const projectInput = root.querySelector('input[name="project"]');
+    const typeInput   = root.querySelector('select[name="type"]');
     const successRecap = root.querySelector('.cal-success p:not(.cal-success-note)');
 
     const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
@@ -698,11 +791,11 @@
         const fn = firstName.value.trim();
         const ln = lastName.value.trim();
         const em = emailInput.value.trim();
-        const pj = projectInput.value.trim();
-        if (!fn || !ln || !em || !pj) return;
+        const tp = typeInput.value.trim();
+        if (!fn || !ln || !em || !tp) return;
 
         // Construit le mailto: avec tous les détails de la réservation
-        const subject = encodeURIComponent(`Audit gratuit · ${formatRecap()}`);
+        const subject = encodeURIComponent(`Audit gratuit · ${tp} · ${formatRecap()}`);
         const body = encodeURIComponent(
           `Bonjour Finalyn,\n\n` +
           `Je souhaite réserver un audit gratuit (30 min en visio).\n\n` +
@@ -710,7 +803,7 @@
           `Prénom : ${fn}\n` +
           `Nom : ${ln}\n` +
           `Email : ${em}\n` +
-          `Mon projet : ${pj}\n\n` +
+          `Type de projet : ${tp}\n\n` +
           `Merci de confirmer la disponibilité et envoyer le lien visio.\n\n` +
           `Bien cordialement,\n${fn} ${ln}`
         );
@@ -729,4 +822,24 @@
   }
 
   document.querySelectorAll('[data-cal]').forEach(initCalendar);
+
+  // ---------- Services accordion CTA → pré-remplit le type + scroll vers l'audit ----------
+  document.addEventListener('click', (e) => {
+    const cta = e.target.closest('[data-service-cta]');
+    if (!cta) return;
+    e.preventDefault();
+    const type = cta.getAttribute('data-service-cta');
+    const audit = document.querySelector('#audit');
+    const select = document.querySelector('select[name="type"]');
+    if (select && type) {
+      const opt = Array.from(select.options).find(o => o.value === type);
+      if (opt) select.value = type;
+      // Reset l'état du calendrier au cas où il était déjà en succès/form
+      const cal = document.querySelector('[data-cal]');
+      if (cal) { cal.classList.remove('is-form', 'is-done'); }
+    }
+    if (audit) {
+      audit.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 })();

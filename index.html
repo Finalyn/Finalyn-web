@@ -332,51 +332,141 @@
               Ce que nous concevons <span class="services__title-accent">pour vous.</span>
             </h2>
 
-            <ul class="services__list">
+            <ul class="services__list" data-services-accordion>
               <li>
-                <a href="mailto:contact@finalyn.com?subject=Projet%20site%20vitrine" class="services__item">
-                  <div class="services__item-body">
-                    <h3 class="services__item-title">Site vitrine</h3>
-                    <p class="services__item-desc">Une page propre qui présente, rassure et convertit. Livrée en 5-10 jours.</p>
+                <details class="services__item" name="services-accordion" data-service-type="Site vitrine">
+                  <summary class="services__item-summary">
+                    <div class="services__item-body">
+                      <h3 class="services__item-title">Site vitrine</h3>
+                      <p class="services__item-desc">Une page propre qui présente, rassure et convertit. Livrée en 5-10 jours.</p>
+                    </div>
+                    <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </summary>
+                  <div class="services__item-detail">
+                    <p>Idéal pour artisans, indépendants, petites entreprises qui veulent une vraie présence en ligne sans usine à gaz. Design soigné sur mesure (pas de template), perfs Lighthouse 95+, et SEO technique inclus dès la livraison.</p>
+                    <ul class="services__item-features">
+                      <li>Design sur mesure (pas de template)</li>
+                      <li>Mobile-first, perfs 95+ Lighthouse</li>
+                      <li>SEO technique (meta, sitemap, structured data)</li>
+                      <li>Mise en ligne + formulaire de contact</li>
+                    </ul>
+                    <div class="services__item-meta-row">
+                      <span><strong>Délai :</strong> 5 à 10 jours</span>
+                      <a href="#audit" class="btn btn--dark services__item-cta" data-service-cta="Site vitrine">
+                        Prendre rendez-vous
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </a>
+                    </div>
                   </div>
-                  <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
+                </details>
               </li>
               <li>
-                <a href="mailto:contact@finalyn.com?subject=Projet%20e-commerce" class="services__item">
-                  <div class="services__item-body">
-                    <h3 class="services__item-title">E-commerce</h3>
-                    <p class="services__item-desc">Boutique en ligne propre. Catalogue, paiement Stripe, gestion de stock — sans Shopify.</p>
+                <details class="services__item" name="services-accordion" data-service-type="E-commerce">
+                  <summary class="services__item-summary">
+                    <div class="services__item-body">
+                      <h3 class="services__item-title">E-commerce</h3>
+                      <p class="services__item-desc">Boutique en ligne propre. Catalogue, paiement Stripe, gestion de stock — sans Shopify.</p>
+                    </div>
+                    <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </summary>
+                  <div class="services__item-detail">
+                    <p>Vous êtes propriétaire de votre boutique, de votre code et de vos données — pas d'abonnement Shopify à rallonge. Idéal jusqu'à quelques centaines de références, avec moyens de paiement adaptés à la Suisse (Twint, Apple Pay, cartes).</p>
+                    <ul class="services__item-features">
+                      <li>Catalogue produits + variantes</li>
+                      <li>Paiement Stripe (CB, Twint, Apple Pay)</li>
+                      <li>Gestion de stock + back-office léger</li>
+                      <li>Click &amp; collect / livraison Suisse</li>
+                    </ul>
+                    <div class="services__item-meta-row">
+                      <span><strong>Délai :</strong> 2 à 4 semaines</span>
+                      <a href="#audit" class="btn btn--dark services__item-cta" data-service-cta="E-commerce">
+                        Prendre rendez-vous
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </a>
+                    </div>
                   </div>
-                  <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
+                </details>
               </li>
               <li>
-                <a href="mailto:contact@finalyn.com?subject=Projet%20SaaS%20/%20MVP" class="services__item">
-                  <div class="services__item-body">
-                    <h3 class="services__item-title">Application SaaS / MVP</h3>
-                    <p class="services__item-desc">Outil métier, dashboard, démo investisseurs. Auth + DB + déploiement cloud.</p>
+                <details class="services__item" name="services-accordion" data-service-type="Application SaaS / MVP">
+                  <summary class="services__item-summary">
+                    <div class="services__item-body">
+                      <h3 class="services__item-title">Application SaaS / MVP</h3>
+                      <p class="services__item-desc">Outil métier, dashboard, démo investisseurs. Auth + DB + déploiement cloud.</p>
+                    </div>
+                    <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </summary>
+                  <div class="services__item-detail">
+                    <p>Outil sur mesure pour valider une idée, outiller votre équipe ou impressionner des investisseurs. Authentification robuste, base de données, déploiement cloud — tout est en place dès le jour 1, et on itère vite après livraison.</p>
+                    <ul class="services__item-features">
+                      <li>Auth (email, Google, magic link)</li>
+                      <li>Base PostgreSQL + tableau de bord</li>
+                      <li>Déploiement Vercel / Supabase / AWS</li>
+                      <li>Itérations rapides après livraison</li>
+                    </ul>
+                    <div class="services__item-meta-row">
+                      <span><strong>Délai :</strong> 3 à 8 semaines</span>
+                      <a href="#audit" class="btn btn--dark services__item-cta" data-service-cta="Application SaaS / MVP">
+                        Prendre rendez-vous
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </a>
+                    </div>
                   </div>
-                  <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
+                </details>
               </li>
               <li>
-                <a href="mailto:contact@finalyn.com?subject=Refonte%20de%20site" class="services__item">
-                  <div class="services__item-body">
-                    <h3 class="services__item-title">Refonte</h3>
-                    <p class="services__item-desc">Votre site existe mais ne convertit pas ? On audite, on refait, on mesure.</p>
+                <details class="services__item" name="services-accordion" data-service-type="Refonte">
+                  <summary class="services__item-summary">
+                    <div class="services__item-body">
+                      <h3 class="services__item-title">Refonte</h3>
+                      <p class="services__item-desc">Votre site existe mais ne convertit pas ? On audite, on refait, on mesure.</p>
+                    </div>
+                    <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </summary>
+                  <div class="services__item-detail">
+                    <p>On commence par auditer ce qui bloque (UX, perfs, SEO, contenu, conversion), on priorise ce qui aura le plus d'impact, on refait ce qui compte. À la livraison, vous avez un comparatif chiffré avant/après pour mesurer le gain.</p>
+                    <ul class="services__item-features">
+                      <li>Audit technique + UX + SEO</li>
+                      <li>Plan de refonte priorisé par impact</li>
+                      <li>Refonte design + dev</li>
+                      <li>Comparatif avant/après chiffré</li>
+                    </ul>
+                    <div class="services__item-meta-row">
+                      <span><strong>Délai :</strong> 2 à 5 semaines</span>
+                      <a href="#audit" class="btn btn--dark services__item-cta" data-service-cta="Refonte">
+                        Prendre rendez-vous
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </a>
+                    </div>
                   </div>
-                  <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
+                </details>
               </li>
               <li>
-                <a href="mailto:contact@finalyn.com?subject=Projet%20sur%20mesure" class="services__item">
-                  <div class="services__item-body">
-                    <h3 class="services__item-title">Sur mesure</h3>
-                    <p class="services__item-desc">Projet hors-norme, intégration custom, besoin spécifique ? On creuse avec vous.</p>
+                <details class="services__item" name="services-accordion" data-service-type="Sur mesure">
+                  <summary class="services__item-summary">
+                    <div class="services__item-body">
+                      <h3 class="services__item-title">Sur mesure</h3>
+                      <p class="services__item-desc">Projet hors-norme, intégration custom, besoin spécifique ? On creuse avec vous.</p>
+                    </div>
+                    <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </summary>
+                  <div class="services__item-detail">
+                    <p>Plugin, outil interne, intégration API, automatisation, migration de données… On adapte la stack à votre besoin réel — pas l'inverse. Cadrage technique gratuit, devis détaillé sous 48 h, suivi régulier et livraisons par étapes.</p>
+                    <ul class="services__item-features">
+                      <li>Cadrage technique gratuit (30 min)</li>
+                      <li>Devis détaillé en 48 h</li>
+                      <li>Stack adaptée à votre besoin réel</li>
+                      <li>Suivi régulier + livraison par étapes</li>
+                    </ul>
+                    <div class="services__item-meta-row">
+                      <span><strong>Délai :</strong> sur devis</span>
+                      <a href="#audit" class="btn btn--dark services__item-cta" data-service-cta="Sur mesure">
+                        Prendre rendez-vous
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </a>
+                    </div>
                   </div>
-                  <svg class="services__item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
+                </details>
               </li>
             </ul>
           </div>
@@ -811,8 +901,16 @@
                   <input type="email" name="email" autocomplete="email" required />
                 </label>
                 <label class="cal-input">
-                  <span>Projet (en quelques mots)</span>
-                  <input type="text" name="project" autocomplete="off" required />
+                  <span>Type de projet</span>
+                  <select name="type" required data-cal-type>
+                    <option value="" disabled selected>Choisissez…</option>
+                    <option value="Site vitrine">Site vitrine</option>
+                    <option value="E-commerce">E-commerce</option>
+                    <option value="Application SaaS / MVP">Application SaaS / MVP</option>
+                    <option value="Refonte">Refonte</option>
+                    <option value="Sur mesure">Sur mesure</option>
+                    <option value="Autre">Autre</option>
+                  </select>
                 </label>
                 <button type="submit" class="cal-cta cal-cta-final">
                   <span class="cal-cta-label">Confirmer la réservation</span>
