@@ -1,28 +1,39 @@
 (() => {
   'use strict';
 
-  // ---------- Scroll lock pour modals (overflow hidden — ne déplace pas le body) ----------
+  // ---------- Scroll lock pour modals (position:fixed avec scrollY restoré) ----------
   let lockCount = 0;
+  let savedScrollY = 0;
   let savedPaddingRight = '';
   function lockBodyScroll() {
     if (lockCount === 0) {
+      savedScrollY = window.scrollY || window.pageYOffset || 0;
       // Compense la largeur de la scrollbar pour éviter le saut de layout
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       savedPaddingRight = document.body.style.paddingRight;
       if (scrollbarWidth > 0) {
         document.body.style.paddingRight = `${scrollbarWidth}px`;
       }
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
+      // Fige visuellement la page à sa position actuelle (préserve scroll sur mobile)
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
     }
     lockCount++;
   }
   function unlockBodyScroll() {
     lockCount = Math.max(0, lockCount - 1);
     if (lockCount === 0) {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
       document.body.style.paddingRight = savedPaddingRight;
+      // Restaure exactement la position de scroll
+      window.scrollTo(0, savedScrollY);
     }
   }
 
