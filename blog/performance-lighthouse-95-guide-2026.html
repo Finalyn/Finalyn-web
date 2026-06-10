@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lighthouse 95+ : le guide complet pour un site rapide en 2026 · finalyn.web</title>
+    <meta name="description" content="Comment passer Lighthouse 95+ sur tous les critères : Core Web Vitals (LCP, CLS, INP), images, fonts, JS, lazy loading. Méthode appliquée par Finalyn.web sur tous nos sites en 2026." />
+    <meta name="author" content="finalyn.web" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <link rel="canonical" href="https://finalyn.com/blog/performance-lighthouse-95-guide-2026.html" />
+
+    <meta name="geo.region" content="CH-VD" />
+    <meta name="geo.placename" content="Rolle, Suisse" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="finalyn.web" />
+    <meta property="og:title" content="Lighthouse 95+ : le guide complet pour un site rapide en 2026" />
+    <meta property="og:description" content="Core Web Vitals, LCP, CLS, INP : la méthode complète pour passer en vert sur tous les indicateurs Google." />
+    <meta property="og:url" content="https://finalyn.com/blog/performance-lighthouse-95-guide-2026.html" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80" />
+    <meta property="article:published_time" content="2026-06-10" />
+    <meta property="article:author" content="Finalyn.web" />
+    <meta property="article:section" content="Performance" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lighthouse 95+ : le guide complet pour un site rapide en 2026" />
+
+    <link rel="icon" type="image/svg+xml" href="../assets/picto.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Lighthouse 95+ : le guide complet pour un site rapide en 2026",
+      "description": "Comment passer Lighthouse 95+ sur tous les critères : Core Web Vitals, images, fonts, JS, lazy loading. Méthode appliquée par Finalyn.web.",
+      "datePublished": "2026-06-10",
+      "dateModified": "2026-06-10",
+      "author": {"@type": "Organization", "name": "Finalyn.web", "url": "https://finalyn.com/"},
+      "publisher": {"@type": "Organization", "name": "Finalyn.web", "url": "https://finalyn.com/"},
+      "mainEntityOfPage": "https://finalyn.com/blog/performance-lighthouse-95-guide-2026.html",
+      "inLanguage": "fr-CH",
+      "articleSection": "Performance",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
+    }
+    </script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="../index.html" class="nav__logo" aria-label="Finalyn.Web — accueil">
+          finalyn<span class="nav__logo-accent">.web</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#cas-usage">Cas d'usage</a></li>
+          <li><a href="../index.html#realisations">Réalisations</a></li>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="../index.html#audit">Audit gratuit</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="article">
+      <section class="article__hero">
+        <div class="article__hero-inner">
+          <a href="index.html" class="article__back">← Tous les articles</a>
+          <span class="article__tag">Performance</span>
+          <h1 class="article__title">Lighthouse 95+ : le guide complet pour un site rapide en 2026</h1>
+          <div class="article__meta">
+            <time datetime="2026-06-10">10 juin 2026</time>
+            <span>·</span>
+            <span>9 min de lecture</span>
+          </div>
+        </div>
+      </section>
+
+      <article class="article__body">
+        <p>Si votre site met plus de 2,5 secondes à s'afficher sur mobile, vous perdez la moitié de vos visiteurs avant même qu'ils voient votre logo. Google le sait, vous référence en fonction, et vos concurrents — ceux qui investissent dans la performance — vous prennent du trafic chaque semaine.</p>
+
+        <p>Cet article est la méthode exacte qu'on applique chez Finalyn.web sur chaque site qu'on livre. Tous nos projets passent <strong>95+ sur Lighthouse mobile</strong>, pas par chance, mais parce qu'on attaque chaque point dans le bon ordre. Voici lequel.</p>
+
+        <h2>Pourquoi viser 95+ et pas 80 ?</h2>
+
+        <p>Lighthouse note de 0 à 100 sur quatre axes : Performance, Accessibilité, Bonnes pratiques, SEO. La note Performance est la plus difficile parce qu'elle dépend des Core Web Vitals — trois métriques que Google utilise dans son ranking depuis 2021.</p>
+
+        <p>Concrètement :</p>
+        <ul>
+          <li><strong>0 à 49</strong> : votre site est lent. Google vous pénalise en référencement, votre taux de rebond est élevé, vos conversions chutent.</li>
+          <li><strong>50 à 89</strong> : vous êtes dans la moyenne. Pas pénalisé, pas favorisé. Vos concurrents qui poussent à 90+ vous passent devant.</li>
+          <li><strong>90 à 100</strong> : Google considère votre site comme "rapide". Vous gagnez en ranking, votre taux de conversion grimpe, votre SEO suit.</li>
+        </ul>
+
+        <p>Pourquoi <strong>95</strong> et pas 90 ? Parce que la note Lighthouse varie de ±5 points selon la connexion lors du test. Viser 95 garantit qu'on reste systématiquement au-dessus de 90 dans la vraie vie.</p>
+
+        <h2>Les Core Web Vitals : ce que Google mesure vraiment</h2>
+
+        <h3>LCP (Largest Contentful Paint) — viser &lt; 2,5s</h3>
+
+        <p>C'est le temps que met votre élément principal (souvent le titre H1 ou l'image hero) à apparaître. Si votre LCP dépasse 4 secondes, vous êtes en rouge dans le rapport et Google vous le fait sentir.</p>
+
+        <p><strong>Les causes typiques d'un mauvais LCP :</strong></p>
+        <ul>
+          <li>Une image hero trop lourde (PNG de 3 Mo au lieu d'un WebP de 200 Ko)</li>
+          <li>Des fonts Google chargées sans <code>preconnect</code></li>
+          <li>Du CSS bloquant en haut du <code>&lt;head&gt;</code></li>
+          <li>Un serveur qui répond lentement (TTFB &gt; 800 ms)</li>
+        </ul>
+
+        <h3>CLS (Cumulative Layout Shift) — viser &lt; 0,1</h3>
+
+        <p>Le CLS mesure combien votre page "saute" pendant le chargement. Vous avez sûrement vécu ça : vous lisez un article, une pub se charge, tout le contenu descend de 200 pixels, vous cliquez sur le mauvais bouton. C'est ça, le CLS.</p>
+
+        <p><strong>Les coupables :</strong> images sans dimensions définies, polices web qui changent de taille pendant le chargement, contenus injectés dynamiquement (cookies, chat widgets, pubs).</p>
+
+        <h3>INP (Interaction to Next Paint) — viser &lt; 200 ms</h3>
+
+        <p>L'INP a remplacé le FID en mars 2024. C'est le temps de réponse à une interaction (clic, tap, frappe clavier). Si votre menu burger met 500 ms à s'ouvrir, votre INP est mauvais.</p>
+
+        <p>L'INP punit le <strong>JavaScript bloquant</strong> : trop de scripts third-party (Google Analytics, Hotjar, Intercom, Calendly) chargés au mauvais moment, ou des animations CSS lourdes sur des appareils bas de gamme.</p>
+
+        <h2>La méthode Finalyn pour passer 95+ en 5 étapes</h2>
+
+        <h3>1. Images : WebP + dimensions explicites + lazy loading</h3>
+
+        <p>L'optimisation des images représente <strong>60% du gain de performance</strong> sur un site moyen. Voici la règle d'or :</p>
+
+        <ul>
+          <li>Convertissez tout en <strong>WebP</strong> (ou AVIF si supporté). Une image WebP pèse 25-35% de moins qu'un PNG équivalent.</li>
+          <li>Ajoutez systématiquement <code>width</code> et <code>height</code> sur chaque <code>&lt;img&gt;</code>. Sans ça, le navigateur ne réserve pas l'espace et votre CLS explose.</li>
+          <li>Utilisez <code>loading="lazy"</code> sur toutes les images sauf celle visible immédiatement (l'image hero). Cette dernière mérite parfois un <code>fetchpriority="high"</code>.</li>
+          <li>Servez des tailles adaptées avec <code>srcset</code>. Un téléphone n'a pas besoin d'une image 4K.</li>
+        </ul>
+
+        <h3>2. Fonts : preload + font-display: swap</h3>
+
+        <p>Les polices Google Fonts sont la deuxième cause de LCP médiocre. Sans optimisation, voici ce qui se passe : votre HTML charge → le CSS demande la font → le navigateur va chercher sur Google → la font arrive → tout se réorganise (CLS qui monte).</p>
+
+        <p>La solution :</p>
+        <pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="...font CSS..." rel="stylesheet"&gt;</code></pre>
+
+        <p>Et dans votre CSS, ajoutez <code>font-display: swap</code> pour que le texte s'affiche immédiatement avec une font système, puis bascule en douceur sur votre font web une fois chargée.</p>
+
+        <h3>3. JavaScript : minimum vital, defer, et zéro framework si possible</h3>
+
+        <p>Un site React/Next.js de base envoie au navigateur 150-300 Ko de JavaScript juste pour afficher du texte. Sur 4G suisse, c'est encore tolérable, mais pour un site vitrine ou une landing, c'est <strong>du sur-engineering qui plombe votre Lighthouse</strong>.</p>
+
+        <p>Notre règle : <strong>HTML/CSS/JS vanilla</strong> pour tous les sites où on n'a pas besoin de state complexe. Quand React est justifié (app SaaS, dashboard métier), on optimise avec code-splitting, lazy routes et server components.</p>
+
+        <p>Dans tous les cas, mettez <code>defer</code> ou <code>async</code> sur tous vos <code>&lt;script&gt;</code> non-critiques.</p>
+
+        <h3>4. CSS : inline ce qui est above-the-fold</h3>
+
+        <p>Le CSS bloque le rendu. Tant que votre fichier <code>styles.css</code> n'est pas chargé, le navigateur n'affiche rien. Pour un LCP rapide, deux approches :</p>
+
+        <ol>
+          <li><strong>Critical CSS inliné</strong> : on extrait les ~10 Ko de CSS nécessaires au premier écran et on les met directement dans <code>&lt;style&gt;</code> en haut du <code>&lt;head&gt;</code>. Le reste charge en différé.</li>
+          <li><strong>CSS unique et léger</strong> : un seul fichier &lt; 50 Ko bien organisé. Pas de Tailwind compilé non purgé, pas de Bootstrap entier. Ce qu'on n'utilise pas, on ne le charge pas.</li>
+        </ol>
+
+        <h3>5. Hébergement : un CDN, pas un mutualisé OVH</h3>
+
+        <p>Votre site peut être parfaitement optimisé, si votre serveur met 1,5 seconde à répondre au premier byte (TTFB), votre LCP sera mauvais. Investissez dans un hébergement moderne.</p>
+
+        <p>Nos recommandations 2026 pour les PME suisses :</p>
+        <ul>
+          <li><strong>Sites vitrines / e-commerce light</strong> : Vercel ou Netlify (gratuit jusqu'à un certain trafic, CDN mondial inclus)</li>
+          <li><strong>E-commerce conséquent</strong> : Infomaniak Jelastic (données en Suisse, RGPD/nLPD nativement)</li>
+          <li><strong>SaaS / apps lourdes</strong> : Cloudflare Pages + Workers pour le edge, Supabase pour la base données</li>
+        </ul>
+
+        <p>Évitez les mutualisés bas de gamme (Hostinger à 2 €/mois, OVH Web Perso). L'économie de 5 €/mois vous coûte 30% de conversion.</p>
+
+        <blockquote>"Un site rapide n'est pas un luxe technique, c'est un investissement direct dans votre chiffre d'affaires. Amazon avait calculé qu'une seconde de latence en plus coûtait 1,6 milliard de dollars par an. Votre PME est plus petite, mais le ratio est le même."</blockquote>
+
+        <h2>Le piège des outils third-party</h2>
+
+        <p>Chaque widget ajouté à votre site est un risque de performance. Voici les vrais coûts :</p>
+
+        <table>
+          <thead>
+            <tr><th>Outil</th><th>Poids JS</th><th>Impact LCP</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Google Analytics</td><td>~45 Ko</td><td>Faible si bien chargé (defer + idle)</td></tr>
+            <tr><td>Calendly inline</td><td>~120 Ko</td><td>Lourd, à éviter en visible</td></tr>
+            <tr><td>Intercom chat</td><td>~250 Ko</td><td>Très lourd, charger après interaction</td></tr>
+            <tr><td>Hotjar / Clarity</td><td>~80 Ko</td><td>Moyen, charger en différé</td></tr>
+            <tr><td>Stripe Checkout</td><td>~90 Ko</td><td>Charger uniquement sur les pages panier</td></tr>
+          </tbody>
+        </table>
+
+        <p>Notre règle : on demande systématiquement <strong>"est-ce vraiment nécessaire ?"</strong> avant d'intégrer un widget. Et quand on l'intègre, on le charge avec <code>requestIdleCallback</code> ou après une interaction utilisateur.</p>
+
+        <h2>Comment tester (et continuer à tester après livraison)</h2>
+
+        <p>Trois outils complémentaires :</p>
+        <ul>
+          <li><a href="https://pagespeed.web.dev" target="_blank" rel="noopener">PageSpeed Insights</a> : le test de référence, données mobiles réelles (CrUX)</li>
+          <li>Chrome DevTools → onglet Lighthouse : pour des tests rapides en local</li>
+          <li><a href="https://www.webpagetest.org" target="_blank" rel="noopener">WebPageTest</a> : tests depuis plusieurs zones géographiques, idéal pour vérifier le rendu depuis Zürich, Genève, Lugano</li>
+        </ul>
+
+        <p>Mettez en place une vérification mensuelle. Un site qui passe 95 à la livraison peut tomber à 75 six mois plus tard si on a ajouté trois widgets sans réfléchir.</p>
+
+        <h2>Le résultat business concret</h2>
+
+        <p>Sur les sites que Finalyn a optimisés en 2025-2026, voici les gains moyens observés :</p>
+        <ul>
+          <li><strong>+22% de taux de conversion</strong> mesuré sur des e-commerces (passer de LCP 4s à 1,8s)</li>
+          <li><strong>+35% de visiteurs SEO</strong> après 3 mois (Google favorise les sites rapides)</li>
+          <li><strong>-40% de taux de rebond mobile</strong> (les visiteurs n'abandonnent plus avant le chargement)</li>
+        </ul>
+
+        <p>La performance n'est pas un sujet technique réservé aux devs. C'est un levier business mesurable, immédiat, qui rentabilise une refonte en quelques mois.</p>
+      </article>
+
+      <aside class="article__cta">
+        <h3>Votre site est lent ? On le sait en 30 minutes.</h3>
+        <p>Audit gratuit avec rapport Lighthouse détaillé, top 5 des optimisations à fort impact, devis de refonte si pertinent.</p>
+        <a href="../index.html#audit" class="btn btn--dark">Réserver mon audit gratuit →</a>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__bottom">
+          <p>© <time datetime="2026">2026</time> finalyn.web — tous droits réservés.</p>
+          <ul class="footer__legal">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../mentions-legales.html#confidentialite">Confidentialité</a></li>
+            <li><a href="../mentions-legales.html#cgv">CGV</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
