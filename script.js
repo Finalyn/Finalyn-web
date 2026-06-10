@@ -861,23 +861,29 @@
     });
   })();
 
-  // ---------- Services accordion CTA → pré-remplit le type + scroll vers l'audit ----------
-  document.addEventListener('click', (e) => {
-    const cta = e.target.closest('[data-service-cta]');
-    if (!cta) return;
-    e.preventDefault();
-    const type = cta.getAttribute('data-service-cta');
+  // ---------- Services accordion CTA + besoin chips → pré-remplit le type + scroll vers l'audit ----------
+  const prefillAndScroll = (type) => {
     const audit = document.querySelector('#audit');
     const select = document.querySelector('select[name="type"]');
     if (select && type) {
       const opt = Array.from(select.options).find(o => o.value === type);
       if (opt) select.value = type;
-      // Reset l'état du calendrier au cas où il était déjà en succès/form
       const cal = document.querySelector('[data-cal]');
       if (cal) { cal.classList.remove('is-form', 'is-done'); }
     }
-    if (audit) {
-      audit.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (audit) audit.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  document.addEventListener('click', (e) => {
+    const cta = e.target.closest('[data-service-cta]');
+    if (cta) {
+      e.preventDefault();
+      prefillAndScroll(cta.getAttribute('data-service-cta'));
+      return;
+    }
+    const chip = e.target.closest('[data-need]');
+    if (chip) {
+      prefillAndScroll(chip.getAttribute('data-need'));
     }
   });
 })();
