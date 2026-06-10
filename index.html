@@ -230,24 +230,39 @@
 
           </div>
 
-          <div class="hero__visual" aria-hidden="true">
-            <div class="carousel" data-carousel>
-              <svg class="carousel__svg" data-carousel-svg xmlns="http://www.w3.org/2000/svg">
-                <circle class="carousel__circle" data-carousel-circle fill="none" stroke="#0f172a" stroke-width="5"/>
-                <g class="carousel__dots" data-carousel-dots>
-                  <circle r="15" fill="#4a7fd4"/>
-                  <circle r="15" fill="#4a7fd4"/>
-                  <circle r="15" fill="#4a7fd4"/>
-                  <circle r="15" fill="#4a7fd4"/>
-                </g>
-              </svg>
-              <div class="carousel__mockup" data-carousel-mockup>
-                <div class="carousel__mockup-track" data-carousel-track>
-                  <span class="carousel__mockup-label" data-device="laptop"><img src="assets/mockup/laptop.png" alt="" loading="lazy"></span>
-                  <span class="carousel__mockup-label" data-device="iphone"><img src="assets/mockup/Iphone.png" alt="" loading="lazy"></span>
-                  <span class="carousel__mockup-label" data-device="ipad"><img src="assets/mockup/Ipad.png" alt="" loading="lazy"></span>
-                  <span class="carousel__mockup-label" data-device="mac"><img src="assets/mockup/Mac.png" alt="" loading="lazy"></span>
-                  <span class="carousel__mockup-label" data-device="laptop"><img src="assets/mockup/laptop.png" alt="" loading="lazy"></span>
+        </div>
+      </section>
+
+      <!-- ============ APERÇU PRODUIT (phone mockup CSS) ============ -->
+      <section class="phonepreview" aria-labelledby="phonepreview-title">
+        <div class="phonepreview__inner">
+          <header class="phonepreview__head">
+            <span class="phonepreview__kicker">Aperçu produit</span>
+            <h2 id="phonepreview-title" class="phonepreview__title">[PLACEHOLDER — titre de section]</h2>
+            <p class="phonepreview__lede">[PLACEHOLDER — description courte de ce qu'on présente ici, à remplacer.]</p>
+          </header>
+
+          <div class="phonepreview__stage">
+            <!-- Maquette smartphone en CSS pur -->
+            <div class="phone-mockup" aria-hidden="true">
+              <div class="phone-mockup__frame">
+                <div class="phone-mockup__notch"></div>
+                <div class="phone-mockup__screen">
+                  <div class="phone-mockup__bar">
+                    <span class="phone-mockup__time">9:41</span>
+                    <span class="phone-mockup__dots"></span>
+                  </div>
+                  <div class="phone-mockup__content">
+                    <div class="phone-mockup__title-row">[PLACEHOLDER — titre app]</div>
+                    <div class="phone-mockup__card phone-mockup__card--lg"></div>
+                    <div class="phone-mockup__card-row">
+                      <div class="phone-mockup__card phone-mockup__card--sm"></div>
+                      <div class="phone-mockup__card phone-mockup__card--sm"></div>
+                    </div>
+                    <div class="phone-mockup__card"></div>
+                    <div class="phone-mockup__card phone-mockup__card--md"></div>
+                  </div>
+                  <div class="phone-mockup__indicator"></div>
                 </div>
               </div>
             </div>
@@ -266,33 +281,19 @@
 
           <!-- Chips d'exemples -->
           <div class="needs__chips" role="list">
-            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un site vitrine pour mon entreprise">
-              <span class="needs__chip-icon" aria-hidden="true">🪟</span>
-              <span>Un site vitrine pro</span>
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un site vitrine pour mon entreprise"><span>Un site vitrine pro</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux vendre en ligne avec Stripe">
-              <span class="needs__chip-icon" aria-hidden="true">🛒</span>
-              <span>Vendre en ligne</span>
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux vendre en ligne avec Stripe"><span>Vendre en ligne</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un MVP / une app SaaS pour mon startup">
-              <span class="needs__chip-icon" aria-hidden="true">⚡</span>
-              <span>Un MVP / une app SaaS</span>
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un MVP / une app SaaS pour mon startup"><span>Un MVP / une app SaaS</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux refaire mon site qui ne convertit pas">
-              <span class="needs__chip-icon" aria-hidden="true">🔁</span>
-              <span>Refaire mon site</span>
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux refaire mon site qui ne convertit pas"><span>Refaire mon site</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Mon site est trop lent, j'ai besoin d'optimisation Lighthouse et SEO">
-              <span class="needs__chip-icon" aria-hidden="true">⚡</span>
-              <span>Optimiser ma vitesse / SEO</span>
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Mon site est trop lent, j'ai besoin d'optimisation Lighthouse et SEO"><span>Optimiser ma vitesse / SEO</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux améliorer mon taux de conversion sur mon site">
-              <span class="needs__chip-icon" aria-hidden="true">📈</span>
-              <span>Améliorer ma conversion</span>
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux améliorer mon taux de conversion sur mon site"><span>Améliorer ma conversion</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un projet sur mesure : plugin, intégration API ou automatisation">
-              <span class="needs__chip-icon" aria-hidden="true">🛠️</span>
-              <span>Un projet sur mesure</span>
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un projet sur mesure : plugin, intégration API ou automatisation"><span>Un projet sur mesure</span>
             </button>
           </div>
 
@@ -321,121 +322,59 @@
         </div>
       </section>
 
-      <!-- ============ CAS D'USAGE ============ -->
-      <section class="usecases" id="cas-usage">
-        <div class="usecases__inner">
-          <header class="usecases__head">
-            <span class="usecases__kicker">Cas d'usage</span>
-            <h2 class="usecases__title">Vous vous reconnaissez&nbsp;?</h2>
+      <!-- ============ NOS SECTEURS / MÉTIERS ============ -->
+      <section class="sectors" id="cas-usage" aria-labelledby="sectors-title">
+        <div class="sectors__inner">
+          <header class="sectors__head">
+            <span class="sectors__kicker">Vous vous reconnaissez ?</span>
+            <h2 id="sectors-title" class="sectors__title">Solutions dédiées à <span class="sectors__title-accent">votre métier</span>.</h2>
+            <p class="sectors__lede">On crée des sites et applications adaptés aux spécificités de votre secteur — cliquez sur le vôtre pour découvrir ce qu'on apporte.</p>
           </header>
 
-          <div class="usecases__arc" data-usecases>
-            <article class="usecard" data-usecard data-case="restaurateur" style="--slot:1">
-              <div class="usecard__inner">
-                <div class="usecard__face usecard__face--front">
-                  <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=600&q=80" alt="Table dressée dans un restaurant chaleureux — Vous êtes restaurateur ?" loading="lazy" />
-                </div>
-                <div class="usecard__face usecard__face--back">
-                  <span class="usecard__num">01</span>
-                  <span class="usecard__label">Vous êtes restaurateur&nbsp;?</span>
-                  <span class="usecard__hint">Carte, photos, réservations</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="usecard" data-usecard data-case="commercant" style="--slot:2">
-              <div class="usecard__inner">
-                <div class="usecard__face usecard__face--front">
-                  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Boutique élégante avec articles soigneusement présentés — Vous êtes commerçant ?" loading="lazy" />
-                </div>
-                <div class="usecard__face usecard__face--back">
-                  <span class="usecard__num">02</span>
-                  <span class="usecard__label">Vous êtes commerçant&nbsp;?</span>
-                  <span class="usecard__hint">Catalogue, paiement, stock</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="usecard" data-usecard data-case="startup" style="--slot:3">
-              <div class="usecard__inner">
-                <div class="usecard__face usecard__face--front">
-                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Équipe startup en réunion autour d'un écran — Vous lancez une startup ?" loading="lazy" />
-                </div>
-                <div class="usecard__face usecard__face--back">
-                  <span class="usecard__num">03</span>
-                  <span class="usecard__label">Vous lancez une startup&nbsp;?</span>
-                  <span class="usecard__hint">MVP rapide, démo investisseurs</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="usecard" data-usecard data-case="association" style="--slot:4">
-              <div class="usecard__inner">
-                <div class="usecard__face usecard__face--front">
-                  <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=600&q=80" alt="Mains de bénévoles solidaires unies — Vous êtes une association ou ONG ?" loading="lazy" />
-                </div>
-                <div class="usecard__face usecard__face--back">
-                  <span class="usecard__num">04</span>
-                  <span class="usecard__label">Association ou ONG&nbsp;?</span>
-                  <span class="usecard__hint">Communication, dons, adhésion</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="usecard" data-usecard data-case="independant" style="--slot:5">
-              <div class="usecard__inner">
-                <div class="usecard__face usecard__face--front">
-                  <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="Indépendant·e au travail sur ordinateur portable avec café — Cas d'usage Finalyn.web" loading="lazy" />
-                </div>
-                <div class="usecard__face usecard__face--back">
-                  <span class="usecard__num">05</span>
-                  <span class="usecard__label">Vous êtes indépendant·e&nbsp;?</span>
-                  <span class="usecard__hint">Portfolio, RDV, tarifs</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="usecard" data-usecard data-case="medecin" style="--slot:6">
-              <div class="usecard__inner">
-                <div class="usecard__face usecard__face--front">
-                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Médecin en blouse blanche avec stéthoscope dans un cabinet — Cas d'usage Finalyn.web" loading="lazy" />
-                </div>
-                <div class="usecard__face usecard__face--back">
-                  <span class="usecard__num">06</span>
-                  <span class="usecard__label">Médecin ou cabinet&nbsp;?</span>
-                  <span class="usecard__hint">Équipe, RDV, accès</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="usecard" data-usecard data-case="coach" style="--slot:7">
-              <div class="usecard__inner">
-                <div class="usecard__face usecard__face--front">
-                  <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Coach en séance de formation avec son client — Cas d'usage Finalyn.web" loading="lazy" />
-                </div>
-                <div class="usecard__face usecard__face--back">
-                  <span class="usecard__num">07</span>
-                  <span class="usecard__label">Coach ou formateur·trice&nbsp;?</span>
-                  <span class="usecard__hint">Programmes, leads, paiement</span>
-                </div>
-              </div>
-            </article>
+          <div class="sectors__grid">
+            <a href="metiers/architecte.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Architecte"></div>
+              <span class="sector-card__label">Architecte</span>
+            </a>
+            <a href="metiers/electricien.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Électricien"></div>
+              <span class="sector-card__label">Électricien</span>
+            </a>
+            <a href="metiers/macon.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Maçon"></div>
+              <span class="sector-card__label">Maçon</span>
+            </a>
+            <a href="metiers/menuiserie.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Menuiserie"></div>
+              <span class="sector-card__label">Menuiserie</span>
+            </a>
+            <a href="metiers/monteur-sanitaire.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Monteur sanitaire"></div>
+              <span class="sector-card__label">Monteur sanitaire</span>
+            </a>
+            <a href="metiers/commerce-de-detail.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Commerce de détail"></div>
+              <span class="sector-card__label">Commerce de détail</span>
+            </a>
+            <a href="metiers/agence-immobiliere.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Agence immobilière"></div>
+              <span class="sector-card__label">Agence immobilière</span>
+            </a>
+            <a href="metiers/fiduciaire.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Fiduciaire"></div>
+              <span class="sector-card__label">Fiduciaire</span>
+            </a>
+            <a href="metiers/centre-de-formation.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Centre de formation"></div>
+              <span class="sector-card__label">Centre de formation</span>
+            </a>
+            <a href="metiers/cabinets-juridiques.html" class="sector-card">
+              <div class="sector-card__image" style="background-image: url('https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=600&q=80');" role="img" aria-label="Cabinets juridiques"></div>
+              <span class="sector-card__label">Cabinets juridiques</span>
+            </a>
           </div>
 
-          <dialog class="usecases__modal" data-usecase-modal>
-            <button class="usecases__close" type="button" data-usecase-close aria-label="Fermer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
-            <div class="usecases__modal-body">
-              <span class="usecases__panel-num" data-panel-num></span>
-              <h3 class="usecases__panel-title" data-panel-title></h3>
-              <p class="usecases__panel-lede" data-panel-lede></p>
-              <ul class="usecases__panel-list" data-panel-list></ul>
-              <a href="mailto:contact@finalyn.com" class="btn btn--dark usecases__panel-cta">Démarrer mon projet</a>
-            </div>
-          </dialog>
-
-          <div class="usecases__cta">
+          <div class="sectors__cta">
             <a href="mailto:contact@finalyn.com?subject=Mon%20cas%20n%27est%20pas%20dans%20la%20liste" class="btn btn--dark">
               Le mien n'est pas là
             </a>
@@ -443,85 +382,36 @@
         </div>
       </section>
 
-      <!-- ============ PROCESS ============ -->
-      <section class="process" id="process">
-        <div class="process__inner">
-          <header class="process__head">
-            <span class="process__kicker">Comment ça se passe</span>
-            <h2 class="process__title">5 étapes, 10 jours max.</h2>
-            <p class="process__lede">Pas de réunions à rallonge. Pas de devis à 30 pages. On code, vous regardez.</p>
-          </header>
+      <!-- ============ POURQUOI NOS SERVICES ============ -->
+      <section class="benefits" id="pourquoi" aria-labelledby="benefits-title">
+        <div class="benefits__inner">
+          <div class="benefits__grid">
+            <!-- Grande carte intro à gauche -->
+            <article class="benefit benefit--intro">
+              <h2 id="benefits-title" class="benefit__title">Pourquoi <span class="benefit__title-accent">nos services</span> ?</h2>
+              <p class="benefit__lede">
+                [PLACEHOLDER] On conçoit des sites et applications pensés pour servir votre métier — pas l'inverse. Performance, conversion et SEO inclus, livrés en jours, pas en mois.
+              </p>
+            </article>
 
-          <div class="process__stage">
-            <div class="statspanel" data-statspanel>
-              <div class="statspanel__head">
-                <span class="statspanel__pulse" aria-hidden="true"></span>
-                <span class="statspanel__title">Notre standard de livraison</span>
-              </div>
-
-              <div class="statspanel__grid">
-                <div class="statspanel__stat">
-                  <span class="statspanel__value">
-                    <span data-count-to="14">0</span><span class="statspanel__unit">j</span>
-                  </span>
-                  <span class="statspanel__label">Livré en</span>
-                  <span class="statspanel__sub">de l'idée au live</span>
-                </div>
-
-                <div class="statspanel__stat">
-                  <span class="statspanel__value">
-                    <span data-count-to="98">0</span><span class="statspanel__unit">/100</span>
-                  </span>
-                  <span class="statspanel__label">Score Lighthouse</span>
-                  <span class="statspanel__sub">performance + SEO</span>
-                </div>
-
-                <div class="statspanel__stat">
-                  <span class="statspanel__value">
-                    <span data-count-to="100">0</span><span class="statspanel__unit">%</span>
-                  </span>
-                  <span class="statspanel__label">Mobile-first</span>
-                  <span class="statspanel__sub">testé sur 12 devices</span>
-                </div>
-
-                <div class="statspanel__stat">
-                  <span class="statspanel__value">
-                    <span>&lt; </span><span data-count-to="24">0</span><span class="statspanel__unit">h</span>
-                  </span>
-                  <span class="statspanel__label">Première réponse</span>
-                  <span class="statspanel__sub">à votre brief</span>
-                </div>
-              </div>
-            </div>
+            <!-- 4 cartes bénéfices -->
+            <article class="benefit">
+              <h3 class="benefit__stat">[PLACEHOLDER]</h3>
+              <p class="benefit__text">[PLACEHOLDER] Court paragraphe expliquant ce premier bénéfice. À remplacer par votre argument fort.</p>
+            </article>
+            <article class="benefit">
+              <h3 class="benefit__stat">[PLACEHOLDER]</h3>
+              <p class="benefit__text">[PLACEHOLDER] Court paragraphe expliquant le deuxième bénéfice (stat, gain de temps, ROI…).</p>
+            </article>
+            <article class="benefit">
+              <h3 class="benefit__stat">[PLACEHOLDER]</h3>
+              <p class="benefit__text">[PLACEHOLDER] Court paragraphe expliquant le troisième bénéfice (qualité, expertise locale, autre).</p>
+            </article>
+            <article class="benefit">
+              <h3 class="benefit__stat">[PLACEHOLDER]</h3>
+              <p class="benefit__text">[PLACEHOLDER] Court paragraphe expliquant le quatrième bénéfice (délai, résultat mesurable).</p>
+            </article>
           </div>
-
-          <ol class="process__steps">
-            <li class="proc-step proc-step--1">
-              <span class="proc-step__num">01</span>
-              <span class="proc-step__name">Brief</span>
-              <span class="proc-step__days">1 jour</span>
-            </li>
-            <li class="proc-step proc-step--2">
-              <span class="proc-step__num">02</span>
-              <span class="proc-step__name">Maquette</span>
-              <span class="proc-step__days">2-3 jours</span>
-            </li>
-            <li class="proc-step proc-step--3">
-              <span class="proc-step__num">03</span>
-              <span class="proc-step__name">Production</span>
-              <span class="proc-step__days">3-5 jours</span>
-            </li>
-            <li class="proc-step proc-step--4">
-              <span class="proc-step__num">04</span>
-              <span class="proc-step__name">Tests</span>
-              <span class="proc-step__days">1 jour</span>
-            </li>
-            <li class="proc-step proc-step--5">
-              <span class="proc-step__num">05</span>
-              <span class="proc-step__name">Livraison</span>
-              <span class="proc-step__days">jour J</span>
-            </li>
-          </ol>
         </div>
       </section>
 
@@ -671,27 +561,6 @@
               </li>
             </ul>
           </div>
-        </div>
-      </section>
-
-      <!-- ============ DEVICES SLIDER (mobile only) ============ -->
-      <section class="devshow" aria-label="Aperçu sur tous vos écrans" data-devshow>
-        <div class="devshow__inner">
-          <div class="devshow__stage">
-            <div class="devshow__track" data-devshow-track>
-              <div class="devshow__slide" data-device="laptop"><img src="assets/mockup/laptop.png" alt="" loading="lazy" /></div>
-              <div class="devshow__slide" data-device="iphone"><img src="assets/mockup/Iphone.png" alt="" loading="lazy" /></div>
-              <div class="devshow__slide" data-device="ipad"><img src="assets/mockup/Ipad.png" alt="" loading="lazy" /></div>
-              <div class="devshow__slide" data-device="mac"><img src="assets/mockup/Mac.png" alt="" loading="lazy" /></div>
-            </div>
-          </div>
-          <div class="devshow__dots" data-devshow-dots aria-hidden="true">
-            <span class="devshow__dot is-active"></span>
-            <span class="devshow__dot"></span>
-            <span class="devshow__dot"></span>
-            <span class="devshow__dot"></span>
-          </div>
-          <p class="devshow__caption">Optimisé pour tous les écrans.</p>
         </div>
       </section>
 
@@ -871,7 +740,7 @@
         <div class="audit__inner">
           <div class="audit__copy">
             <h2 class="audit__title">
-              Commençons par un <span class="audit__title-accent">audit gratuit</span>.
+              Prenez <span class="audit__title-accent">rendez-vous</span> avec nous.
             </h2>
             <p class="audit__lede">
               C'est la première étape. 30 minutes en visio pour comprendre votre projet, identifier les axes (perf, SEO, UX, conversion) et chiffrer concrètement la livraison. Vous repartez avec un premier visuel offert et une roadmap claire.
@@ -978,6 +847,65 @@
         </div>
       </section>
 
+
+      <!-- ============ BLOG PREVIEW ============ -->
+      <section class="bloghome" id="blog" aria-labelledby="bloghome-title">
+        <div class="bloghome__inner">
+          <div class="bloghome__band">
+          <header class="bloghome__head">
+            <span class="bloghome__kicker">Blog</span>
+            <h2 id="bloghome-title" class="bloghome__title">Ce qu'on partage <span class="bloghome__title-accent">sur le web</span>.</h2>
+            <p class="bloghome__lede">Guides pratiques sur la performance, le SEO local, l'e-commerce et la conception mobile-first pour les PME suisses.</p>
+          </header>
+
+          <div class="bloghome__grid">
+            <a href="blog/performance-lighthouse-95-guide-2026.html" class="bloghome__card">
+              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
+              <div class="bloghome__card-content">
+                <span class="bloghome__card-tag">Performance</span>
+                <h3>Lighthouse 95+ : le guide complet pour un site rapide en 2026</h3>
+                <p>Core Web Vitals, LCP, CLS, INP : comment passer en vert sur tous les indicateurs Google et gagner 30% de conversion.</p>
+                <div class="bloghome__card-meta">
+                  <span>9 min de lecture</span>
+                  <strong>Lire →</strong>
+                </div>
+              </div>
+            </a>
+
+            <a href="blog/seo-local-suisse-romande-2026.html" class="bloghome__card">
+              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
+              <div class="bloghome__card-content">
+                <span class="bloghome__card-tag">SEO</span>
+                <h3>SEO local en Suisse romande : être visible à Rolle, Lausanne, Genève</h3>
+                <p>Google Business Profile, citations cantonales, schema LocalBusiness, mots-clés locaux : la checklist complète.</p>
+                <div class="bloghome__card-meta">
+                  <span>10 min de lecture</span>
+                  <strong>Lire →</strong>
+                </div>
+              </div>
+            </a>
+
+            <a href="blog/e-commerce-suisse-stripe-2026.html" class="bloghome__card">
+              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
+              <div class="bloghome__card-content">
+                <span class="bloghome__card-tag">E-commerce</span>
+                <h3>Vendre en ligne en Suisse en 2026 : guide pratique avec Stripe</h3>
+                <p>Stripe vs PostFinance vs PayPal, TVA, Twint, livraison : tout pour ouvrir une boutique conforme et rentable.</p>
+                <div class="bloghome__card-meta">
+                  <span>11 min de lecture</span>
+                  <strong>Lire →</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="bloghome__cta">
+            <a href="blog/index.html" class="btn btn--quiet">Voir tous les articles →</a>
+          </div>
+          </div>
+        </div>
+      </section>
+    </main>
       <!-- ============ FAQ ============ -->
       <section class="faq" id="faq">
         <div class="faq__inner">
@@ -989,36 +917,6 @@
           </header>
 
           <div class="faq__list">
-            <details class="faq__item">
-              <summary class="faq__q">
-                <span>Combien ça coûte vraiment ?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </summary>
-              <div class="faq__a">
-                <p>Chaque projet est unique, donc on chiffre au cas par cas après un brief gratuit de 30 min. À titre indicatif : un site vitrine démarre vers 1500 CHF, un e-commerce simple vers 3500 CHF, un SaaS / MVP vers 8000 CHF. Pas d'abonnement caché, pas de mauvaise surprise.</p>
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__q">
-                <span>C'est quoi le délai réel ?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </summary>
-              <div class="faq__a">
-                <p>5 à 10 jours pour un site vitrine, 2 à 4 semaines pour un e-commerce, 3 à 8 semaines pour un SaaS. Le délai dépend surtout de la rapidité avec laquelle on a votre contenu (textes, photos). On vous envoie un premier visuel sous 24h, vous validez, on lance.</p>
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__q">
-                <span>Vous travaillez avec qui ?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </summary>
-              <div class="faq__a">
-                <p>PME, startups, indépendants, associations — majoritairement en Suisse romande (Vaud, Genève, Fribourg, Valais, Neuchâtel). On parle français, on facture en CHF, on connaît les enjeux locaux. À distance ou en présentiel si vous êtes proches de Rolle.</p>
-              </div>
-            </details>
-
             <details class="faq__item">
               <summary class="faq__q">
                 <span>Et après la livraison ?</span>
@@ -1073,63 +971,6 @@
         </div>
       </section>
 
-      <!-- ============ BLOG PREVIEW ============ -->
-      <section class="bloghome" id="blog" aria-labelledby="bloghome-title">
-        <div class="bloghome__inner">
-          <header class="bloghome__head">
-            <span class="bloghome__kicker">Blog</span>
-            <h2 id="bloghome-title" class="bloghome__title">Ce qu'on partage <span class="bloghome__title-accent">sur le web</span>.</h2>
-            <p class="bloghome__lede">Guides pratiques sur la performance, le SEO local, l'e-commerce et la conception mobile-first pour les PME suisses.</p>
-          </header>
-
-          <div class="bloghome__grid">
-            <a href="blog/performance-lighthouse-95-guide-2026.html" class="bloghome__card">
-              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
-              <div class="bloghome__card-content">
-                <span class="bloghome__card-tag">Performance</span>
-                <h3>Lighthouse 95+ : le guide complet pour un site rapide en 2026</h3>
-                <p>Core Web Vitals, LCP, CLS, INP : comment passer en vert sur tous les indicateurs Google et gagner 30% de conversion.</p>
-                <div class="bloghome__card-meta">
-                  <span>9 min de lecture</span>
-                  <strong>Lire →</strong>
-                </div>
-              </div>
-            </a>
-
-            <a href="blog/seo-local-suisse-romande-2026.html" class="bloghome__card">
-              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
-              <div class="bloghome__card-content">
-                <span class="bloghome__card-tag">SEO</span>
-                <h3>SEO local en Suisse romande : être visible à Rolle, Lausanne, Genève</h3>
-                <p>Google Business Profile, citations cantonales, schema LocalBusiness, mots-clés locaux : la checklist complète.</p>
-                <div class="bloghome__card-meta">
-                  <span>10 min de lecture</span>
-                  <strong>Lire →</strong>
-                </div>
-              </div>
-            </a>
-
-            <a href="blog/e-commerce-suisse-stripe-2026.html" class="bloghome__card">
-              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
-              <div class="bloghome__card-content">
-                <span class="bloghome__card-tag">E-commerce</span>
-                <h3>Vendre en ligne en Suisse en 2026 : guide pratique avec Stripe</h3>
-                <p>Stripe vs PostFinance vs PayPal, TVA, Twint, livraison : tout pour ouvrir une boutique conforme et rentable.</p>
-                <div class="bloghome__card-meta">
-                  <span>11 min de lecture</span>
-                  <strong>Lire →</strong>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="bloghome__cta">
-            <a href="blog/index.html" class="btn btn--quiet">Voir tous les articles →</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
     <!-- ============ FOOTER ============ -->
     <footer class="footer" id="contact">
       <div class="footer__inner">
@@ -1169,8 +1010,8 @@
           <nav class="footer__nav" aria-label="Sur le site">
             <h4>Sur le site</h4>
             <ul>
-              <li><a href="#cas-usage">Cas d'usage</a></li>
-              <li><a href="#process">Process</a></li>
+              <li><a href="#cas-usage">Métiers</a></li>
+              <li><a href="#pourquoi">Pourquoi nos services</a></li>
               <li><a href="#realisations">Réalisations</a></li>
               <li><a href="blog/index.html">Blog</a></li>
               <li><a href="#audit">Audit gratuit</a></li>
