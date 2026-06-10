@@ -164,21 +164,18 @@
 
         <!-- Burger (mobile only) -->
         <button type="button" class="nav__burger" data-burger aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navPanel">
-          <span class="nav__burger-bar"></span>
-          <span class="nav__burger-bar"></span>
-          <span class="nav__burger-bar"></span>
+          <span class="nav__burger-label">Menu</span>
+          <span class="nav__burger-bars" aria-hidden="true">
+            <span class="nav__burger-bar"></span>
+            <span class="nav__burger-bar"></span>
+            <span class="nav__burger-bar"></span>
+          </span>
         </button>
       </nav>
 
-      <!-- Panel slide-from-left (mobile only) -->
+      <!-- Backdrop + Panel slide-from-right (mobile only) -->
       <div class="nav__backdrop" data-burger-backdrop aria-hidden="true"></div>
       <aside class="nav__panel" id="navPanel" data-nav-panel aria-hidden="true">
-        <div class="nav__panel-head">
-          <span class="nav__panel-brand">finalyn<span class="nav__logo-accent">.web</span></span>
-          <button type="button" class="nav__panel-close" data-burger-close aria-label="Fermer le menu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-          </button>
-        </div>
         <ul class="nav__panel-links">
           <li><a href="#services" data-burger-link>Services</a></li>
           <li><a href="#cas-usage" data-burger-link>Cas d'usage</a></li>
@@ -188,9 +185,6 @@
           <li><a href="#faq" data-burger-link>FAQ</a></li>
           <li><a href="#contact" data-burger-link>Contact</a></li>
         </ul>
-        <div class="nav__panel-foot">
-          <a href="mailto:contact@finalyn.com" class="nav__panel-mail">contact@finalyn.com</a>
-        </div>
       </aside>
     </header>
 
@@ -1080,6 +1074,62 @@
               </div>
             </details>
           </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ BLOG PREVIEW ============ -->
+      <section class="bloghome" id="blog" aria-labelledby="bloghome-title">
+        <div class="bloghome__inner">
+          <header class="bloghome__head">
+            <span class="bloghome__kicker">Blog</span>
+            <h2 id="bloghome-title" class="bloghome__title">Ce qu'on partage <span class="bloghome__title-accent">sur le web</span>.</h2>
+            <p class="bloghome__lede">Guides pratiques sur la performance, le SEO local, l'e-commerce et la conception mobile-first pour les PME suisses.</p>
+          </header>
+
+          <div class="bloghome__grid">
+            <a href="blog/performance-lighthouse-95-guide-2026.html" class="bloghome__card">
+              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
+              <div class="bloghome__card-content">
+                <span class="bloghome__card-tag">Performance</span>
+                <h3>Lighthouse 95+ : le guide complet pour un site rapide en 2026</h3>
+                <p>Core Web Vitals, LCP, CLS, INP : comment passer en vert sur tous les indicateurs Google et gagner 30% de conversion.</p>
+                <div class="bloghome__card-meta">
+                  <span>9 min de lecture</span>
+                  <strong>Lire →</strong>
+                </div>
+              </div>
+            </a>
+
+            <a href="blog/seo-local-suisse-romande-2026.html" class="bloghome__card">
+              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
+              <div class="bloghome__card-content">
+                <span class="bloghome__card-tag">SEO</span>
+                <h3>SEO local en Suisse romande : être visible à Rolle, Lausanne, Genève</h3>
+                <p>Google Business Profile, citations cantonales, schema LocalBusiness, mots-clés locaux : la checklist complète.</p>
+                <div class="bloghome__card-meta">
+                  <span>10 min de lecture</span>
+                  <strong>Lire →</strong>
+                </div>
+              </div>
+            </a>
+
+            <a href="blog/e-commerce-suisse-stripe-2026.html" class="bloghome__card">
+              <div class="bloghome__card-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80');" aria-hidden="true"></div>
+              <div class="bloghome__card-content">
+                <span class="bloghome__card-tag">E-commerce</span>
+                <h3>Vendre en ligne en Suisse en 2026 : guide pratique avec Stripe</h3>
+                <p>Stripe vs PostFinance vs PayPal, TVA, Twint, livraison : tout pour ouvrir une boutique conforme et rentable.</p>
+                <div class="bloghome__card-meta">
+                  <span>11 min de lecture</span>
+                  <strong>Lire →</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="bloghome__cta">
+            <a href="blog/index.html" class="btn btn--quiet">Voir tous les articles →</a>
           </div>
         </div>
       </section>

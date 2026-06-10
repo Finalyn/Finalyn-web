@@ -822,13 +822,12 @@
 
   document.querySelectorAll('[data-cal]').forEach(initCalendar);
 
-  // ---------- Burger menu mobile ----------
+  // ---------- Burger menu mobile (style finalyn-ia : toggle via burger + backdrop + Esc) ----------
   (() => {
     const burger = document.querySelector('[data-burger]');
     const panel = document.querySelector('[data-nav-panel]');
     const backdrop = document.querySelector('[data-burger-backdrop]');
-    const closeBtn = document.querySelector('[data-burger-close]');
-    const links = document.querySelectorAll('[data-burger-link]');
+    const allLinks = panel ? panel.querySelectorAll('a') : [];
     if (!burger || !panel || !backdrop) return;
 
     const open = () => {
@@ -851,11 +850,7 @@
       else open();
     });
     backdrop.addEventListener('click', close);
-    if (closeBtn) closeBtn.addEventListener('click', close);
-    links.forEach(a => a.addEventListener('click', () => {
-      // Laisse le scroll vers l'ancre se faire, puis ferme
-      setTimeout(close, 60);
-    }));
+    allLinks.forEach(a => a.addEventListener('click', () => setTimeout(close, 60)));
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && panel.classList.contains('is-open')) close();
     });
