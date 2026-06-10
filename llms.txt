@@ -1,0 +1,78 @@
+# Finalyn.web — Agence digitale suisse
+
+> Finalyn.web est une agence digitale basée à Rolle (canton de Vaud, Suisse), spécialisée dans la création de sites web, e-commerce et applications SaaS pour les PME, indépendants, startups et associations en Suisse romande. Approche moderne : développement assisté par IA (vibe coding), livraison rapide (5-10 jours pour un site vitrine), prix transparents.
+
+## À propos
+
+- **Nom** : Finalyn.web
+- **Localisation** : Rolle, Vaud, Suisse
+- **Zone d'intervention** : toute la Suisse romande (Vaud, Genève, Fribourg, Neuchâtel, Valais), en visio partout ailleurs
+- **Contact** : contact@finalyn.com · +41 79 639 36 84
+- **Site** : https://finalyn.com/
+- **LinkedIn** : https://www.linkedin.com/company/finalyn
+- **Instagram** : https://www.instagram.com/finalyn.ch/
+
+## Services principaux
+
+- **Site vitrine** : page propre qui présente, rassure et convertit. Livré en 5-10 jours. À partir de 1500 CHF.
+- **E-commerce** : boutique en ligne avec Stripe, paiement, gestion de stock, sans abonnement Shopify obligatoire. Dès 3500 CHF.
+- **Application SaaS / MVP** : outil métier, dashboard, démo investisseurs. Auth + base de données + déploiement cloud. Dès 8000 CHF.
+- **Refonte** : audit et refonte ciblée d'un site existant qui ne convertit pas. Avec comparatif avant/après chiffré.
+- **Sur mesure** : plugin, outil interne, intégration API, automatisation, migration de données.
+
+## Stack technique
+
+- Sites vitrines : HTML/CSS/JS vanilla quand pertinent, ou Next.js pour les sites complexes
+- E-commerce : Shopify pour démarrer, sur mesure (Next.js + Stripe + Sanity) pour les projets premium
+- SaaS : React + TypeScript + Supabase / PostgreSQL + Vercel
+- IA : intégration Claude, GPT, agents personnalisés via API
+- Hébergement : Vercel, Netlify, Infomaniak (Suisse), Cloudflare
+
+## Notre méthode
+
+Process en 5 étapes :
+1. **Brief** (1 jour) — comprendre vos enjeux, vos contraintes
+2. **Maquette** (2-3 jours) — premier visuel offert sous 24 h
+3. **Production** (3-5 jours) — développement assisté par IA
+4. **Tests** (1 jour) — mobile-first sur 12 devices, Lighthouse 95+
+5. **Livraison** (jour J) — du brief à la mise en ligne en 5-10 jours
+
+Standards de livraison :
+- 100/100 Score Lighthouse performance + SEO
+- Mobile-first testé sur 12 devices
+- Première réponse à votre brief sous 24 h
+
+## Articles de blog
+
+- [Lighthouse 95+ : le guide complet pour un site rapide en 2026](https://finalyn.com/blog/performance-lighthouse-95-guide-2026.html) — Core Web Vitals, LCP, CLS, INP, optimisations concrètes
+- [SEO local en Suisse romande : être visible à Rolle, Lausanne, Genève](https://finalyn.com/blog/seo-local-suisse-romande-2026.html) — Google Business Profile, citations, schema LocalBusiness
+- [Quand refaire votre site ? Les 7 signaux et le ROI à attendre](https://finalyn.com/blog/quand-refaire-son-site-roi.html) — Audit honnête, quand refaire vs patcher
+- [Vendre en ligne en Suisse en 2026 : guide pratique avec Stripe](https://finalyn.com/blog/e-commerce-suisse-stripe-2026.html) — Stripe vs PostFinance, Twint, TVA, livraison, nLPD
+- [Mobile-first : pourquoi 70% de votre trafic vient du téléphone](https://finalyn.com/blog/mobile-first-trafic-telephone.html) — 8 règles pour concevoir vraiment mobile-first
+- [Vibe coding : le développement assisté par IA, nouveau standard ?](https://finalyn.com/blog/vibe-coding-developpement-ia-pme.html) — Comment Claude Code, Copilot et Cursor changent la livraison logicielle
+
+## Cas d'usage typiques
+
+Nous travaillons avec :
+- Restaurateurs (site vitrine + carte digitale + réservation)
+- Commerçants (e-commerce + Stripe + stock)
+- Startups (MVP rapide + démo investisseurs)
+- Associations / ONG (mission + dons + adhésion)
+- Indépendants (portfolio + RDV + paiement)
+- Médecins / cabinets (équipe + RDV + conformité)
+- Coachs / formateurs (programmes + tunnel inscription)
+
+## Réalisations récentes
+
+- **MAX2C4D** (2026) — Plugin de conversion 3ds Max → Cinema 4D + site vitrine
+- **Pulci2** (2026) — Refonte vitrine restaurant italien à Rolle, multilingue FR/EN/IT
+- **TownProject** (2026) — Site vitrine entreprise suisse de construction
+- **BFC APP** (2026) — Application métier PWA pour digitaliser un processus de commande
+- **Arkia** (2025) — Plateforme SaaS d'IA générative pour l'architecture
+- **Brandify** (2025) — App web pour ajouter logo / filigrane sur images
+- **CityGuess** (2025) — Jeu de géographie multijoueur avec abonnement premium
+- **Purcheez** (2025) — Plateforme de paiement en escrow pour freelances
+
+## Audit gratuit
+
+Avant tout devis, nous proposons un **audit gratuit de 30 minutes en visio** avec un rapport personnalisé sous 24 h. Réservation en ligne sur https://finalyn.com/#audit

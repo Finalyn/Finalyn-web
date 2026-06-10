@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-CH">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Finalyn.Web — Construisons votre projet web</title>
-    <meta name="description" content="Finalyn — agence digitale & innovation suisse. Construisons votre projet web." />
+    <title>Finalyn.web · Agence digitale suisse — sites web, e-commerce, apps SaaS en 5-10 jours</title>
+    <meta name="description" content="Finalyn.web crée des sites vitrine, e-commerce et applications SaaS en 5 à 10 jours pour les PME, indépendants et startups suisses. Basée à Rolle, active dans toute la Suisse romande." />
+    <meta name="author" content="Finalyn.web" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="keywords" content="agence web suisse, création site internet Rolle, site vitrine Suisse romande, e-commerce Stripe Suisse, MVP SaaS, refonte site web, agence digitale Vaud, développement web Lausanne, SEO local suisse, vibe coding" />
+
+    <link rel="canonical" href="https://finalyn.com/" />
+
+    <meta name="geo.region" content="CH-VD" />
+    <meta name="geo.placename" content="Rolle, Suisse" />
+    <meta name="geo.position" content="46.4583;6.3389" />
+    <meta name="ICBM" content="46.4583, 6.3389" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="Finalyn.web" />
+    <meta property="og:title" content="Finalyn.web · Agence digitale suisse — sites web, e-commerce, apps SaaS" />
+    <meta property="og:description" content="Sites vitrine, e-commerce et apps SaaS livrés en 5 à 10 jours pour les PME suisses. Basée à Rolle, active en Suisse romande." />
+    <meta property="og:url" content="https://finalyn.com/" />
+    <meta property="og:image" content="https://finalyn.com/assets/hero-bg-2.png" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Finalyn.web · Agence digitale suisse" />
+    <meta name="twitter:description" content="Sites web, e-commerce et apps SaaS en 5 à 10 jours pour PME suisses." />
+    <meta name="twitter:image" content="https://finalyn.com/assets/hero-bg-2.png" />
+
+    <meta name="theme-color" content="#2563EB" />
 
     <link rel="icon" type="image/svg+xml" href="assets/picto.svg" />
+    <link rel="alternate" hreflang="fr-CH" href="https://finalyn.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://finalyn.com/" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,6 +45,106 @@
     />
 
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Structured data — Organization + LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://finalyn.com/#organization",
+          "name": "Finalyn.web",
+          "alternateName": "Finalyn Web",
+          "url": "https://finalyn.com/",
+          "logo": "https://finalyn.com/assets/picto.svg",
+          "email": "contact@finalyn.com",
+          "telephone": "+41 79 639 36 84",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Rolle",
+            "addressRegion": "VD",
+            "addressCountry": "CH"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/finalyn",
+            "https://www.instagram.com/finalyn.ch/"
+          ]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://finalyn.com/#localbusiness",
+          "name": "Finalyn.web",
+          "image": "https://finalyn.com/assets/hero-bg-2.png",
+          "url": "https://finalyn.com/",
+          "telephone": "+41 79 639 36 84",
+          "email": "contact@finalyn.com",
+          "priceRange": "CHF 1500 - CHF 30000",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Rolle",
+            "postalCode": "1180",
+            "addressRegion": "VD",
+            "addressCountry": "CH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 46.4583,
+            "longitude": 6.3389
+          },
+          "areaServed": [
+            {"@type": "AdministrativeArea", "name": "Vaud"},
+            {"@type": "AdministrativeArea", "name": "Genève"},
+            {"@type": "AdministrativeArea", "name": "Fribourg"},
+            {"@type": "AdministrativeArea", "name": "Neuchâtel"},
+            {"@type": "AdministrativeArea", "name": "Valais"},
+            {"@type": "Country", "name": "Suisse"}
+          ],
+          "openingHours": "Mo-Fr 09:00-18:00"
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://finalyn.com/#service",
+          "name": "Création de sites web et applications",
+          "provider": {"@id": "https://finalyn.com/#organization"},
+          "areaServed": {"@type": "Country", "name": "Suisse"},
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services Finalyn.web",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Site vitrine", "description": "Site vitrine professionnel livré en 5-10 jours"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "E-commerce", "description": "Boutique en ligne avec Stripe, conforme nLPD"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Application SaaS / MVP", "description": "MVP fonctionnel pour startups et démos investisseurs"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Refonte de site", "description": "Refonte ciblée d'un site existant pour gagner en performance et conversion"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Projet sur mesure", "description": "Plugin, outil interne, intégration API, automatisation"}}
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://finalyn.com/#website",
+          "url": "https://finalyn.com/",
+          "name": "Finalyn.web",
+          "publisher": {"@id": "https://finalyn.com/#organization"},
+          "inLanguage": "fr-CH"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://finalyn.com/#faq",
+          "mainEntity": [
+            {"@type": "Question", "name": "Combien coûte vraiment un site Finalyn.web ?", "acceptedAnswer": {"@type": "Answer", "text": "Site vitrine à partir de 1500 CHF, e-commerce dès 3500 CHF, SaaS / MVP dès 8000 CHF. Pas d'abonnement caché, devis fixe après brief gratuit."}},
+            {"@type": "Question", "name": "Quel est le délai réel de livraison ?", "acceptedAnswer": {"@type": "Answer", "text": "5 à 10 jours pour un site vitrine, 2 à 4 semaines pour un e-commerce, 3 à 8 semaines pour un SaaS. Le délai dépend de la rapidité avec laquelle nous recevons votre contenu."}},
+            {"@type": "Question", "name": "Avec qui travaillez-vous principalement ?", "acceptedAnswer": {"@type": "Answer", "text": "PME, startups, indépendants et associations, majoritairement en Suisse romande (Vaud, Genève, Fribourg, Valais, Neuchâtel)."}},
+            {"@type": "Question", "name": "Que se passe-t-il après la livraison ?", "acceptedAnswer": {"@type": "Answer", "text": "Garantie 30 jours de correction d'éventuels bugs, puis maintenance optionnelle sur forfait mensuel. Vous gardez la propriété du code, des accès et du contenu."}},
+            {"@type": "Question", "name": "Mon site existant peut-il être repris ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, nous reprenons les sites WordPress, Wix, Webflow, Shopify et autres. Audit gratuit de votre stack actuelle avant tout devis de refonte."}},
+            {"@type": "Question", "name": "Faites-vous le contenu et les photos ?", "acceptedAnswer": {"@type": "Answer", "text": "Nous accompagnons sur la rédaction (structure, SEO, copywriting léger). Pour les photos pro, nous travaillons avec des photographes partenaires en Suisse romande."}},
+            {"@type": "Question", "name": "Gérez-vous l'hébergement ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, nous proposons l'hébergement sur Vercel, Netlify ou Infomaniak selon le projet (données en Suisse ou en UE). Vous pouvez aussi héberger vous-même."}},
+            {"@type": "Question", "name": "Le SEO est-il inclus ?", "acceptedAnswer": {"@type": "Answer", "text": "SEO technique inclus dans toutes nos livraisons : balises meta, structured data, sitemap, Lighthouse 95+, mobile-first. Stratégie SEO avancée disponible sur devis."}}
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <!-- ============ HEADER ============ -->
@@ -209,7 +338,7 @@
             <article class="usecard" data-usecard data-case="restaurateur" style="--slot:1">
               <div class="usecard__inner">
                 <div class="usecard__face usecard__face--front">
-                  <img src="https://picsum.photos/seed/finalyn-restaurant/600/800" alt="" loading="lazy" />
+                  <img src="https://picsum.photos/seed/finalyn-restaurant/600/800" alt="Photo d'ambiance restaurant — Vous êtes restaurateur ?" loading="lazy" />
                 </div>
                 <div class="usecard__face usecard__face--back">
                   <span class="usecard__num">01</span>
@@ -222,7 +351,7 @@
             <article class="usecard" data-usecard data-case="commercant" style="--slot:2">
               <div class="usecard__inner">
                 <div class="usecard__face usecard__face--front">
-                  <img src="assets/Commercant.jpg" alt="" loading="lazy" />
+                  <img src="assets/Commercant.jpg" alt="Vitrine commerçant — Vous êtes commerçant ?" loading="lazy" />
                 </div>
                 <div class="usecard__face usecard__face--back">
                   <span class="usecard__num">02</span>
@@ -235,7 +364,7 @@
             <article class="usecard" data-usecard data-case="startup" style="--slot:3">
               <div class="usecard__inner">
                 <div class="usecard__face usecard__face--front">
-                  <img src="assets/Startup.jpg" alt="" loading="lazy" />
+                  <img src="assets/Startup.jpg" alt="Équipe startup en réunion — Vous lancez une startup ?" loading="lazy" />
                 </div>
                 <div class="usecard__face usecard__face--back">
                   <span class="usecard__num">03</span>
@@ -248,7 +377,7 @@
             <article class="usecard" data-usecard data-case="association" style="--slot:4">
               <div class="usecard__inner">
                 <div class="usecard__face usecard__face--front">
-                  <img src="assets/Association.jpg" alt="" loading="lazy" />
+                  <img src="assets/Association.jpg" alt="Bénévoles d'association — Vous êtes une association ou ONG ?" loading="lazy" />
                 </div>
                 <div class="usecard__face usecard__face--back">
                   <span class="usecard__num">04</span>
@@ -261,7 +390,7 @@
             <article class="usecard" data-usecard data-case="independant" style="--slot:5">
               <div class="usecard__inner">
                 <div class="usecard__face usecard__face--front">
-                  <img src="https://picsum.photos/seed/finalyn-independant/600/800" alt="" loading="lazy" />
+                  <img src="https://picsum.photos/seed/finalyn-independant/600/800" alt="Indépendant·e au travail — Cas d'usage Finalyn.web" loading="lazy" />
                 </div>
                 <div class="usecard__face usecard__face--back">
                   <span class="usecard__num">05</span>
@@ -274,7 +403,7 @@
             <article class="usecard" data-usecard data-case="medecin" style="--slot:6">
               <div class="usecard__inner">
                 <div class="usecard__face usecard__face--front">
-                  <img src="https://picsum.photos/seed/finalyn-medecin/600/800" alt="" loading="lazy" />
+                  <img src="https://picsum.photos/seed/finalyn-medecin/600/800" alt="Cabinet médical — Cas d'usage Finalyn.web" loading="lazy" />
                 </div>
                 <div class="usecard__face usecard__face--back">
                   <span class="usecard__num">06</span>
@@ -287,7 +416,7 @@
             <article class="usecard" data-usecard data-case="coach" style="--slot:7">
               <div class="usecard__inner">
                 <div class="usecard__face usecard__face--front">
-                  <img src="https://picsum.photos/seed/finalyn-coach/600/800" alt="" loading="lazy" />
+                  <img src="https://picsum.photos/seed/finalyn-coach/600/800" alt="Coach en séance — Cas d'usage Finalyn.web" loading="lazy" />
                 </div>
                 <div class="usecard__face usecard__face--back">
                   <span class="usecard__num">07</span>
@@ -583,7 +712,7 @@
           <div class="works__grid" data-works-grid>
             <button type="button" class="work-card" data-work="max2c4d">
               <div class="work-card__shot">
-                <img src="https://finalyn.com/attached_assets/max2c4d-hero.webp" alt="" loading="lazy" />
+                <img src="https://finalyn.com/attached_assets/max2c4d-hero.webp" alt="Capture du site MAX2C4D — plugin de conversion 3D" loading="lazy" />
                 <span class="work-card__tag">Plugin 3D</span>
               </div>
               <div class="work-card__body">
@@ -598,7 +727,7 @@
 
             <button type="button" class="work-card" data-work="pulci2">
               <div class="work-card__shot">
-                <img src="https://finalyn.com/attached_assets/pulci2-after-desktop.webp" alt="" loading="lazy" />
+                <img src="https://finalyn.com/attached_assets/pulci2-after-desktop.webp" alt="Capture du site Pulci2 — restaurant italien à Rolle" loading="lazy" />
                 <span class="work-card__tag">Restaurant</span>
               </div>
               <div class="work-card__body">
@@ -613,7 +742,7 @@
 
             <button type="button" class="work-card" data-work="townproject">
               <div class="work-card__shot">
-                <img src="https://finalyn.com/attached_assets/IMG_5087_1768207285302.webp" alt="" loading="lazy" />
+                <img src="https://finalyn.com/attached_assets/IMG_5087_1768207285302.webp" alt="Capture du site TownProject — construction suisse" loading="lazy" />
                 <span class="work-card__tag">Construction</span>
               </div>
               <div class="work-card__body">
@@ -628,7 +757,7 @@
 
             <button type="button" class="work-card" data-work="bfc-app">
               <div class="work-card__shot">
-                <img src="https://finalyn.com/attached_assets/IMG_1725_1768155846009.webp" alt="" loading="lazy" />
+                <img src="https://finalyn.com/attached_assets/IMG_1725_1768155846009.webp" alt="Capture de l'application BFC APP" loading="lazy" />
                 <span class="work-card__tag">App métier</span>
               </div>
               <div class="work-card__body">
@@ -643,7 +772,7 @@
 
             <button type="button" class="work-card" data-work="arkia">
               <div class="work-card__shot">
-                <img src="https://finalyn.com/attached_assets/image_1768065010993.webp" alt="" loading="lazy" />
+                <img src="https://finalyn.com/attached_assets/image_1768065010993.webp" alt="Capture de la plateforme Arkia — IA générative architecture" loading="lazy" />
                 <span class="work-card__tag">SaaS / IA</span>
               </div>
               <div class="work-card__body">
@@ -658,7 +787,7 @@
 
             <button type="button" class="work-card" data-work="brandify">
               <div class="work-card__shot">
-                <img src="https://finalyn.com/attached_assets/image_1765189783731.webp" alt="" loading="lazy" />
+                <img src="https://finalyn.com/attached_assets/image_1765189783731.webp" alt="Capture de Brandify — outil de filigrane web" loading="lazy" />
                 <span class="work-card__tag">Outil web</span>
               </div>
               <div class="work-card__body">
@@ -673,7 +802,7 @@
 
             <button type="button" class="work-card" data-work="cityguess">
               <div class="work-card__shot">
-                <img src="https://finalyn.com/attached_assets/image_1765190009891.webp" alt="" loading="lazy" />
+                <img src="https://finalyn.com/attached_assets/image_1765190009891.webp" alt="Capture de CityGuess — jeu de géographie multijoueur" loading="lazy" />
                 <span class="work-card__tag">Jeu en ligne</span>
               </div>
               <div class="work-card__body">
@@ -688,7 +817,7 @@
 
             <button type="button" class="work-card" data-work="purcheez">
               <div class="work-card__shot">
-                <img src="https://finalyn.com/attached_assets/purcheez_hero.webp" alt="" loading="lazy" />
+                <img src="https://finalyn.com/attached_assets/purcheez_hero.webp" alt="Capture de Purcheez — plateforme de paiement escrow" loading="lazy" />
                 <span class="work-card__tag">FinTech</span>
               </div>
               <div class="work-card__body">
