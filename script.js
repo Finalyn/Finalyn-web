@@ -213,8 +213,8 @@
 
     const TOTAL = 4;
     const STEP_ANGLE = 360 / TOTAL; // 90°
-    const PAUSE_MS = 5000;          // pause sur chaque point
-    const ROTATE_MS = 600;          // durée de la rotation entre 2 points
+    const PAUSE_MS = 2500;          // pause sur chaque point
+    const ROTATE_MS = 500;          // durée de la rotation entre 2 points
 
     // Mockup scroll : stack [dup-laptop, iPhone, iPad, Mac, laptop].
     // La hauteur du slot est lue dynamiquement depuis le DOM (responsive).
@@ -359,8 +359,8 @@
 
   // ---------- Title word rotator : scroll DESCENDANT, sync avec le carousel ----------
   // Timing identique au Carousel : 5s pause + 600ms transition = 5600ms par cycle
-  const ROTATOR_PAUSE_MS = 5000;
-  const ROTATOR_TRANSITION_MS = 600;
+  const ROTATOR_PAUSE_MS = 2500;
+  const ROTATOR_TRANSITION_MS = 500;
   const ROTATOR_CYCLE_MS = ROTATOR_PAUSE_MS + ROTATOR_TRANSITION_MS;
   const ROTATOR_EASING = 'cubic-bezier(0.4, 0, 0.2, 1)';
 
@@ -1030,8 +1030,9 @@
       bubble.className = `needs__bubble needs__bubble--${type}`;
       bubble.innerHTML = text;
       chat.appendChild(bubble);
+      // Scroll DANS le conteneur chat seulement (sans bouger la page)
       requestAnimationFrame(() => {
-        bubble.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        chat.scrollTo({ top: chat.scrollHeight, behavior: 'smooth' });
       });
     };
 
