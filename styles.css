@@ -2077,23 +2077,20 @@ button { font: inherit; cursor: pointer; }
    ============================================ */
 .faq {
   position: relative;
-  padding: 50px 0 70px;
-  background: transparent;
+  padding: 0;
+  background: var(--white);
 }
 .faq__inner {
   width: 100%;
   padding: 0;
   margin: 0;
 }
-/* Bandeau blanc plein écran (comme services) */
 .faq__card {
-  background: var(--white);
+  background: transparent;
   border: none;
   border-radius: 0;
-  padding: 100px 0 80px;
-  box-shadow:
-    0 -1px 0 rgba(15, 15, 15, 0.04),
-    0 1px 0 rgba(15, 15, 15, 0.04);
+  padding: 80px 0 80px;
+  box-shadow: none;
 }
 /* Centrage du contenu à l'intérieur du bandeau */
 .faq__head,
@@ -2193,9 +2190,9 @@ button { font: inherit; cursor: pointer; }
 .faq__a p { margin: 0; }
 
 @media (max-width: 880px) {
-  .faq { padding: 50px 0 70px; }
+  .faq { padding: 0; }
   .faq__inner { padding: 0; }
-  .faq__card { padding: 60px 0 50px; }
+  .faq__card { padding: 60px 0 60px; }
   .faq__head,
   .faq__list { padding-left: 24px; padding-right: 24px; }
   .faq__head { margin-bottom: 32px; }
@@ -2211,8 +2208,8 @@ button { font: inherit; cursor: pointer; }
    ============================================ */
 .audit {
   position: relative;
-  padding: 100px 0 140px;
-  background: transparent;
+  padding: 80px 0 100px;
+  background: var(--white);
 }
 .audit__inner {
   max-width: 1180px;
@@ -2599,7 +2596,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 880px) {
-  .audit { padding: 60px 0 80px; }
+  .audit { padding: 60px 0 70px; }
   .audit__inner {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -4039,15 +4036,13 @@ button { font: inherit; cursor: pointer; }
    ============================================ */
 .bloghome {
   position: relative;
-  padding: 50px 0 70px;
-}
-/* Bandeau blanc plein écran (comme la FAQ) */
-.bloghome__band {
+  padding: 0;
   background: var(--white);
-  padding: 90px 0 100px;
-  box-shadow:
-    0 -1px 0 rgba(15, 15, 15, 0.04),
-    0 1px 0 rgba(15, 15, 15, 0.04);
+}
+.bloghome__band {
+  background: transparent;
+  padding: 90px 0 80px;
+  box-shadow: none;
 }
 .bloghome__inner {
   width: 100%;
@@ -4192,8 +4187,8 @@ button { font: inherit; cursor: pointer; }
   .bloghome__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
-  .bloghome { padding: 40px 0 50px; }
-  .bloghome__band { padding: 60px 0 50px; }
+  .bloghome { padding: 0; }
+  .bloghome__band { padding: 60px 0 40px; }
   .bloghome__inner { padding: 0; }
   .bloghome__head { margin-bottom: 32px; padding: 0 24px; }
   .bloghome__title { font-size: clamp(26px, 7vw, 36px); }
