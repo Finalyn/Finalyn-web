@@ -922,7 +922,7 @@ button { font: inherit; cursor: pointer; }
   .needs__title { font-size: clamp(28px, 7.5vw, 38px); }
   .needs__lede { font-size: 14.5px; }
   .needs__chips { gap: 10px; }
-  /* Chips en colonne scrollable verticale sur mobile */
+  /* Chips en colonne scrollable verticale sur mobile — sans cadre/fond */
   .needs__chips {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -931,18 +931,17 @@ button { font: inherit; cursor: pointer; }
     max-height: 240px;
     overflow-y: auto;
     overscroll-behavior: contain;
-    padding-right: 8px;
-    border: 1px solid var(--ink-10);
-    border-radius: 14px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.6);
+    padding: 2px 8px 2px 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
     /* Scrollbar custom toujours visible (style sidebar) */
     scrollbar-width: thin;
-    scrollbar-color: var(--electric) var(--ink-10);
+    scrollbar-color: var(--electric) transparent;
   }
-  .needs__chips::-webkit-scrollbar { width: 8px; }
-  .needs__chips::-webkit-scrollbar-track { background: var(--ink-10); border-radius: 4px; }
-  .needs__chips::-webkit-scrollbar-thumb { background: var(--electric); border-radius: 4px; }
+  .needs__chips::-webkit-scrollbar { width: 6px; }
+  .needs__chips::-webkit-scrollbar-track { background: transparent; }
+  .needs__chips::-webkit-scrollbar-thumb { background: var(--electric); border-radius: 3px; }
   .needs__chips::-webkit-scrollbar-thumb:hover { background: var(--electric-deep); }
   .needs__chip { padding: 12px 16px; font-size: 13.5px; justify-content: flex-start; }
   .needs__chat { margin-top: 24px; }
