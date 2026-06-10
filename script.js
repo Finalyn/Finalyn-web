@@ -856,7 +856,7 @@
     });
   })();
 
-  // ---------- Services accordion CTA + besoin chips → pré-remplit le type + scroll vers l'audit ----------
+  // ---------- Services accordion CTA → pré-remplit le type + scroll vers l'audit ----------
   const prefillAndScroll = (type) => {
     const audit = document.querySelector('#audit');
     const select = document.querySelector('select[name="type"]');
@@ -874,11 +874,211 @@
     if (cta) {
       e.preventDefault();
       prefillAndScroll(cta.getAttribute('data-service-cta'));
-      return;
-    }
-    const chip = e.target.closest('[data-need]');
-    if (chip) {
-      prefillAndScroll(chip.getAttribute('data-need'));
     }
   });
+
+  // ---------- Agent "Quel est votre besoin ?" — détection par mots-clés ----------
+  (() => {
+    const form = document.querySelector('[data-needs-form]');
+    const input = document.querySelector('[data-needs-input]');
+    const chat = document.querySelector('[data-needs-chat]');
+    const chips = document.querySelectorAll('[data-need-prompt]');
+    if (!form || !input || !chat) return;
+
+    // Catalogue de besoins détectables
+    const NEEDS = [
+      {
+        key: 'ecommerce',
+        type: 'E-commerce',
+        match: /e-?commerce|vendre|boutique|achat|stripe|paiement|shop|panier|magasin|produit/i,
+        title: 'Une boutique en ligne, vous êtes au bon endroit.',
+        intro: 'Pour un e-commerce qui convertit en Suisse en 2026, on recommande une stack moderne avec Stripe + Twint, conforme nLPD.',
+        bullets: [
+          '<strong>Délai</strong> : 2 à 4 semaines pour 50 produits',
+          '<strong>Stack</strong> : Shopify de base ou sur mesure (Next.js + Stripe)',
+          '<strong>Inclus</strong> : checkout optimisé, Twint, suivi commandes, SEO',
+          '<strong>Budget</strong> : à partir de 3 500 CHF'
+        ],
+        cta: 'Démarrer mon e-commerce'
+      },
+      {
+        key: 'vitrine',
+        type: 'Site vitrine',
+        match: /vitrine|site web|page|pr[ée]sent|landing|simple|petit site|portfolio/i,
+        title: 'Un site vitrine pro, c\'est livré en 5-10 jours.',
+        intro: 'Un site qui présente, rassure et convertit. Pas besoin de réinventer la roue : une structure claire, du contenu solide, du SEO inclus.',
+        bullets: [
+          '<strong>Délai</strong> : 5 à 10 jours du brief à la mise en ligne',
+          '<strong>Inclus</strong> : 5-8 pages, formulaire contact, Lighthouse 95+, mobile-first',
+          '<strong>Stack</strong> : HTML/CSS/JS vanilla ou Next.js selon vos besoins',
+          '<strong>Budget</strong> : à partir de 1 500 CHF'
+        ],
+        cta: 'Réserver un audit gratuit'
+      },
+      {
+        key: 'saas',
+        type: 'Application SaaS / MVP',
+        match: /saas|mvp|app|application|startup|d[ée]mo|investisseur|dashboard|outil m[ée]tier/i,
+        title: 'Un MVP solide pour valider votre marché.',
+        intro: 'On code des MVP fonctionnels pensés pour une démo investisseurs ou un premier marché. Auth, base de données, déploiement cloud : tout est inclus.',
+        bullets: [
+          '<strong>Délai</strong> : 3 à 8 semaines selon scope',
+          '<strong>Stack</strong> : React + TypeScript + Supabase + Vercel',
+          '<strong>Inclus</strong> : auth, dashboard métier, déploiement, monitoring',
+          '<strong>Budget</strong> : à partir de 8 000 CHF'
+        ],
+        cta: 'Discutons de votre MVP'
+      },
+      {
+        key: 'refonte',
+        type: 'Refonte',
+        match: /refonte|refaire|moderniser|relooker|vieux|ancien|date|p[ée]rim[ée]|p[ée]rime|nouveau site/i,
+        title: 'Refonte : commençons par auditer honnêtement.',
+        intro: 'Avant de tout refaire, on regarde ce qui marche et ce qui ne marche pas. Parfois la refonte complète est rentable, parfois on patche juste 20% du site.',
+        bullets: [
+          '<strong>Audit gratuit 30 min</strong> avec rapport sous 24 h',
+          '<strong>Comparatif avant/après</strong> chiffré sur perf et conversion',
+          '<strong>Refonte ciblée</strong> dès 2 500 CHF, complète dès 5 000 CHF',
+          '<strong>Garantie</strong> : ROI projeté validé avant tout devis ferme'
+        ],
+        cta: 'Auditer mon site'
+      },
+      {
+        key: 'perf',
+        type: 'Refonte',
+        match: /performance|vitesse|rapide|lent|lighthouse|core web vitals|score|perf|chargement/i,
+        title: 'Site lent ? On vise Lighthouse 95+.',
+        intro: 'La performance, c\'est notre signature. Tous nos sites passent 95+ sur Lighthouse mobile, et nos optimisations augmentent la conversion de 20-30% en moyenne.',
+        bullets: [
+          '<strong>Diagnostic gratuit</strong> avec rapport Lighthouse + top 5 actions',
+          '<strong>Optimisations courantes</strong> : WebP, lazy load, critical CSS, defer JS',
+          '<strong>Délai</strong> : 3-7 jours pour un site existant',
+          '<strong>Budget</strong> : 800 à 3 500 CHF selon complexité'
+        ],
+        cta: 'Analyser mon site'
+      },
+      {
+        key: 'seo',
+        type: 'Refonte',
+        match: /\bseo\b|google|r[ée]f[ée]ren|visible|trouver|moteur de recherche|positionnement|ranking|keyword|mot-?cl[ée]/i,
+        title: 'SEO local en Suisse romande : on connaît.',
+        intro: 'On positionne nos clients top 3 sur Google Maps et Search pour leur zone d\'intervention en 3-6 mois. Méthode complète : Google Business Profile, citations, schema, contenu local.',
+        bullets: [
+          '<strong>Audit SEO gratuit</strong> avec plan d\'action priorisé',
+          '<strong>Inclus dans toutes nos livraisons</strong> : meta, schema, sitemap',
+          '<strong>SEO local avancé</strong> sur devis (3-5 mois de travail)',
+          '<strong>Résultats typiques</strong> : +35% de trafic organique en 3 mois'
+        ],
+        cta: 'Auditer mon SEO'
+      },
+      {
+        key: 'conversion',
+        type: 'Refonte',
+        match: /conversion|ventes|leads|convertir|tunnel|cro|taux|funnel|am[ée]liorer|client/i,
+        title: 'Améliorer votre conversion : c\'est mesurable.',
+        intro: 'On audite votre funnel mobile + desktop, on identifie où vous perdez vos visiteurs, et on refait précisément ces points. Le ROI est rapide et visible.',
+        bullets: [
+          '<strong>Audit conversion gratuit</strong> avec captures et actions concrètes',
+          '<strong>Refonte ciblée</strong> sur le funnel critique (souvent 20% du site)',
+          '<strong>Délai</strong> : 1-3 semaines selon scope',
+          '<strong>Résultat typique</strong> : +50 à +150% de conversion en 3 mois'
+        ],
+        cta: 'Auditer mon funnel'
+      },
+      {
+        key: 'surmesure',
+        type: 'Sur mesure',
+        match: /sur[- ]?mesure|plugin|api|automatisation|interne|int[ée]gration|migration|outil|sp[ée]cifique|particulier/i,
+        title: 'Projet sur mesure : on adore les défis.',
+        intro: 'Plugin, outil interne, intégration API, automatisation, migration de données… On adapte la stack à votre besoin réel — pas l\'inverse.',
+        bullets: [
+          '<strong>Cadrage technique gratuit</strong> avec devis détaillé sous 48 h',
+          '<strong>Stack</strong> : choisie selon votre infra existante',
+          '<strong>Délai et budget</strong> : adaptés au scope précis',
+          '<strong>Suivi</strong> : démos hebdomadaires, livraisons par étapes'
+        ],
+        cta: 'Discuter de mon projet'
+      }
+    ];
+
+    const FALLBACK = {
+      title: 'Pas sûr·e de votre besoin ? Normal.',
+      intro: 'Le mieux c\'est qu\'on en discute 30 minutes : on comprend votre contexte, on vous oriente sans engagement, et vous repartez avec une idée claire de ce qui est rentable.',
+      bullets: [
+        '<strong>Audit gratuit 30 min</strong> en visio',
+        '<strong>Rapport personnalisé sous 24 h</strong>',
+        '<strong>Aucun engagement</strong> — on vous dit aussi quand ne PAS investir',
+        '<strong>Si pertinent</strong> : devis ferme avec délai et prix fixes'
+      ],
+      cta: 'Réserver mon audit gratuit',
+      type: 'Site vitrine'
+    };
+
+    const detect = (text) => {
+      for (const need of NEEDS) {
+        if (need.match.test(text)) return need;
+      }
+      return FALLBACK;
+    };
+
+    const escapeHtml = (s) => s.replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[c]);
+
+    const addBubble = (text, type) => {
+      const bubble = document.createElement('div');
+      bubble.className = `needs__bubble needs__bubble--${type}`;
+      bubble.innerHTML = text;
+      chat.appendChild(bubble);
+      requestAnimationFrame(() => {
+        bubble.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    };
+
+    const buildAgentResponse = (need) => {
+      const safeIntro = need.intro;
+      const bulletsHtml = need.bullets.map(b => `<li>${b}</li>`).join('');
+      return `
+        <div><strong>${need.title}</strong></div>
+        <div style="margin-top:8px;">${safeIntro}</div>
+        <ul>${bulletsHtml}</ul>
+        <a href="#audit" class="needs__bubble-cta" data-needs-cta data-need-type="${need.type}">
+          ${need.cta} →
+        </a>
+      `;
+    };
+
+    const respond = (userText) => {
+      addBubble(escapeHtml(userText), 'user');
+      // Simule un léger délai pour donner l'impression d'une réflexion
+      setTimeout(() => {
+        const need = detect(userText);
+        addBubble(buildAgentResponse(need), 'agent');
+      }, 400);
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      respond(text);
+      input.value = '';
+    });
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const prompt = chip.getAttribute('data-need-prompt');
+        if (prompt) respond(prompt);
+      });
+    });
+
+    // Les CTAs dans les bulles agent → pré-remplit + scroll
+    chat.addEventListener('click', (e) => {
+      const cta = e.target.closest('[data-needs-cta]');
+      if (!cta) return;
+      e.preventDefault();
+      const type = cta.getAttribute('data-need-type');
+      prefillAndScroll(type);
+    });
+  })();
 })();

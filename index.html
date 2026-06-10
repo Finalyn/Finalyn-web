@@ -274,51 +274,69 @@
         </div>
       </section>
 
-      <!-- ============ QUEL EST VOTRE BESOIN ? ============ -->
+      <!-- ============ AGENT — QUEL EST VOTRE BESOIN ? ============ -->
       <section class="needs" id="besoin" aria-labelledby="needs-title">
         <div class="needs__inner">
           <header class="needs__head">
-            <span class="needs__kicker">Vous avez un projet en tête</span>
+            <span class="needs__kicker">Notre agent vous oriente</span>
             <h2 id="needs-title" class="needs__title">Quel est <span class="needs__title-accent">votre besoin</span> ?</h2>
-            <p class="needs__lede">Choisissez ce qui vous ressemble — on pré-remplit votre demande d'audit avec le bon type de projet.</p>
+            <p class="needs__lede">Décrivez votre projet ou cliquez un exemple. L'agent vous répond en moins de 2 secondes, avec une recommandation chiffrée.</p>
           </header>
 
+          <!-- Chips d'exemples -->
           <div class="needs__chips" role="list">
-            <button type="button" class="needs__chip" role="listitem" data-need="Site vitrine">
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un site vitrine pour mon entreprise">
               <span class="needs__chip-icon" aria-hidden="true">🪟</span>
               <span>Un site vitrine pro</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need="E-commerce">
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux vendre en ligne avec Stripe">
               <span class="needs__chip-icon" aria-hidden="true">🛒</span>
               <span>Vendre en ligne</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need="Application SaaS / MVP">
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un MVP / une app SaaS pour mon startup">
               <span class="needs__chip-icon" aria-hidden="true">⚡</span>
               <span>Un MVP / une app SaaS</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need="Refonte">
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux refaire mon site qui ne convertit pas">
               <span class="needs__chip-icon" aria-hidden="true">🔁</span>
               <span>Refaire mon site</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need="Refonte">
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Mon site est trop lent, j'ai besoin d'optimisation Lighthouse et SEO">
               <span class="needs__chip-icon" aria-hidden="true">⚡</span>
               <span>Optimiser ma vitesse / SEO</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need="Refonte">
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="Je veux améliorer mon taux de conversion sur mon site">
               <span class="needs__chip-icon" aria-hidden="true">📈</span>
               <span>Améliorer ma conversion</span>
             </button>
-            <button type="button" class="needs__chip" role="listitem" data-need="Site vitrine">
-              <span class="needs__chip-icon" aria-hidden="true">🗓️</span>
-              <span>Un site avec prise de RDV</span>
-            </button>
-            <button type="button" class="needs__chip" role="listitem" data-need="Sur mesure">
+            <button type="button" class="needs__chip" role="listitem" data-need-prompt="J'ai besoin d'un projet sur mesure : plugin, intégration API ou automatisation">
               <span class="needs__chip-icon" aria-hidden="true">🛠️</span>
               <span>Un projet sur mesure</span>
             </button>
           </div>
 
-          <p class="needs__note">Vous ne savez pas par où commencer ? <a href="#audit">Réservez 30 min d'audit gratuit →</a></p>
+          <!-- Zone de chat où les réponses apparaissent -->
+          <div class="needs__chat" data-needs-chat aria-live="polite"></div>
+
+          <!-- Input de saisie libre -->
+          <form class="needs__prompt" data-needs-form aria-label="Décrivez votre besoin">
+            <input
+              type="text"
+              class="needs__prompt-input"
+              data-needs-input
+              placeholder="Ex : J'ai un restaurant à Rolle, je veux des réservations en ligne…"
+              aria-label="Décrivez votre besoin"
+              autocomplete="off"
+            />
+            <button type="submit" class="needs__prompt-send" aria-label="Envoyer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="13 6 19 12 13 18"></polyline>
+              </svg>
+            </button>
+          </form>
+
+          <p class="needs__note">Vous préférez parler à un humain ? <a href="#audit">Réservez 30 min d'audit gratuit →</a></p>
         </div>
       </section>
 
