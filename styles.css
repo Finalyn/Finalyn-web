@@ -922,28 +922,30 @@ button { font: inherit; cursor: pointer; }
   .needs__title { font-size: clamp(28px, 7.5vw, 38px); }
   .needs__lede { font-size: 14.5px; }
   .needs__chips { gap: 10px; }
-  /* Chips en colonne scrollable verticale sur mobile — sans cadre/fond */
+  /* Chips en grille 2 colonnes compactes — pas de scroll */
   .needs__chips {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
-    max-height: 240px;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    padding: 2px 8px 2px 0;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
     background: transparent;
     border: none;
-    border-radius: 0;
-    /* Scrollbar custom toujours visible (style sidebar) */
-    scrollbar-width: thin;
-    scrollbar-color: var(--electric) transparent;
   }
-  .needs__chips::-webkit-scrollbar { width: 6px; }
-  .needs__chips::-webkit-scrollbar-track { background: transparent; }
-  .needs__chips::-webkit-scrollbar-thumb { background: var(--electric); border-radius: 3px; }
-  .needs__chips::-webkit-scrollbar-thumb:hover { background: var(--electric-deep); }
-  .needs__chip { padding: 12px 16px; font-size: 13.5px; justify-content: flex-start; }
+  .needs__chip {
+    padding: 11px 12px;
+    font-size: 12.5px;
+    justify-content: flex-start;
+    gap: 8px;
+    box-shadow: 0 1px 4px -2px rgba(15, 23, 42, 0.08);
+  }
+  .needs__chip-icon { font-size: 14px; }
+  /* Le dernier chip (impair en dernière ligne) prend toute la largeur */
+  .needs__chip:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
   .needs__chat { margin-top: 24px; }
   .needs__bubble { font-size: 13.5px; padding: 14px 16px; max-width: 92%; }
   .needs__prompt { margin-top: 20px; }
