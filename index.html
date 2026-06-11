@@ -233,36 +233,70 @@
         </div>
       </section>
 
-      <!-- ============ APERÇU PRODUIT (phone mockup CSS) ============ -->
+      <!-- ============ APERÇU MULTI-DEVICES ============ -->
       <section class="phonepreview" aria-labelledby="phonepreview-title">
         <div class="phonepreview__inner">
           <header class="phonepreview__head">
-            <span class="phonepreview__kicker">Aperçu produit</span>
-            <h2 id="phonepreview-title" class="phonepreview__title">[PLACEHOLDER — titre de section]</h2>
-            <p class="phonepreview__lede">[PLACEHOLDER — description courte de ce qu'on présente ici, à remplacer.]</p>
+            <span class="phonepreview__kicker">Responsive design</span>
+            <h2 id="phonepreview-title" class="phonepreview__title">Votre site 100% <span class="phonepreview__title-accent">adapté</span> aux écrans.</h2>
+            <p class="phonepreview__lede">Du téléphone à l'ordinateur portable, votre interface s'adapte parfaitement à chaque format pour offrir une expérience fluide partout.</p>
           </header>
 
           <div class="phonepreview__stage">
-            <!-- Maquette smartphone en CSS pur -->
-            <div class="phone-mockup" aria-hidden="true">
-              <div class="phone-mockup__frame">
-                <div class="phone-mockup__notch"></div>
-                <div class="phone-mockup__screen">
-                  <div class="phone-mockup__bar">
-                    <span class="phone-mockup__time">9:41</span>
-                    <span class="phone-mockup__dots"></span>
+            <!-- Laptop -->
+            <div class="device device--laptop" aria-hidden="true">
+              <div class="device__laptop-screen">
+                <div class="device__bar">
+                  <span class="device__dot device__dot--r"></span>
+                  <span class="device__dot device__dot--y"></span>
+                  <span class="device__dot device__dot--g"></span>
+                </div>
+                <div class="device__content device__content--laptop">
+                  <div class="device__hero"></div>
+                  <div class="device__row">
+                    <div class="device__card"></div>
+                    <div class="device__card"></div>
+                    <div class="device__card"></div>
                   </div>
-                  <div class="phone-mockup__content">
-                    <div class="phone-mockup__title-row">[PLACEHOLDER — titre app]</div>
-                    <div class="phone-mockup__card phone-mockup__card--lg"></div>
-                    <div class="phone-mockup__card-row">
-                      <div class="phone-mockup__card phone-mockup__card--sm"></div>
-                      <div class="phone-mockup__card phone-mockup__card--sm"></div>
+                  <div class="device__line"></div>
+                  <div class="device__line device__line--short"></div>
+                </div>
+              </div>
+              <div class="device__laptop-base"></div>
+            </div>
+
+            <!-- Tablet -->
+            <div class="device device--tablet" aria-hidden="true">
+              <div class="device__tablet-frame">
+                <div class="device__tablet-screen">
+                  <div class="device__content device__content--tablet">
+                    <div class="device__title-row"></div>
+                    <div class="device__hero device__hero--md"></div>
+                    <div class="device__row">
+                      <div class="device__card"></div>
+                      <div class="device__card"></div>
                     </div>
-                    <div class="phone-mockup__card"></div>
-                    <div class="phone-mockup__card phone-mockup__card--md"></div>
+                    <div class="device__line"></div>
                   </div>
-                  <div class="phone-mockup__indicator"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="device device--phone" aria-hidden="true">
+              <div class="device__phone-frame">
+                <div class="device__notch"></div>
+                <div class="device__phone-screen">
+                  <div class="device__phone-bar">
+                    <span>9:41</span>
+                  </div>
+                  <div class="device__content device__content--phone">
+                    <div class="device__title-row device__title-row--sm"></div>
+                    <div class="device__hero device__hero--sm"></div>
+                    <div class="device__card device__card--sm"></div>
+                    <div class="device__card device__card--sm"></div>
+                  </div>
+                  <div class="device__phone-indicator"></div>
                 </div>
               </div>
             </div>

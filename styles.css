@@ -1178,6 +1178,12 @@ button { font: inherit; cursor: pointer; }
   color: var(--ink);
   margin: 0 0 14px;
 }
+.phonepreview__title-accent {
+  background: linear-gradient(92deg, #60A5FA 0%, #2563EB 60%, #1D4FD8 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
 .phonepreview__lede {
   font-size: 16px;
   line-height: 1.55;
@@ -1187,128 +1193,234 @@ button { font: inherit; cursor: pointer; }
 .phonepreview__stage {
   display: flex;
   justify-content: center;
-  padding: 20px 0 10px;
+  align-items: flex-end;
+  gap: 26px;
+  padding: 30px 0 20px;
+  flex-wrap: nowrap;
 }
 
-/* Maquette smartphone CSS pur */
-.phone-mockup {
-  --phone-w: 280px;
-  --phone-h: 580px;
+/* ===== DEVICE COMMON ===== */
+.device {
   position: relative;
-  width: var(--phone-w);
-  height: var(--phone-h);
-  filter: drop-shadow(0 30px 60px rgba(15, 23, 42, 0.25));
+  flex-shrink: 0;
+  filter: drop-shadow(0 18px 36px rgba(15, 23, 42, 0.22));
 }
-.phone-mockup__frame {
-  position: relative;
+.device__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+}
+.device__hero {
+  height: 38px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--electric-soft) 0%, rgba(96, 165, 250, 0.22) 100%);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+.device__hero--md { height: 64px; }
+.device__hero--sm { height: 56px; border-radius: 8px; }
+.device__row {
+  display: flex;
+  gap: 5px;
+}
+.device__card {
+  flex: 1;
+  height: 24px;
+  background: var(--white);
+  border: 1px solid var(--ink-10);
+  border-radius: 4px;
+}
+.device__card--sm {
+  height: 36px;
+  border-radius: 8px;
+}
+.device__line {
+  height: 5px;
+  background: var(--ink-10);
+  border-radius: 3px;
+}
+.device__line--short { width: 60%; }
+.device__title-row {
+  height: 12px;
+  width: 50%;
+  background: var(--ink);
+  opacity: 0.85;
+  border-radius: 3px;
+  margin-bottom: 2px;
+}
+.device__title-row--sm {
+  width: 70%;
+  height: 10px;
+  border-radius: 4px;
+}
+
+/* ===== LAPTOP ===== */
+.device--laptop {
+  width: 360px;
+}
+.device__laptop-screen {
   width: 100%;
-  height: 100%;
+  height: 220px;
   background: #0f172a;
-  border-radius: 42px;
-  padding: 12px;
+  border-radius: 12px 12px 6px 6px;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.device__bar {
+  display: flex;
+  gap: 4px;
+  padding: 5px 8px 7px;
+  background: var(--mist);
+  border-radius: 6px 6px 0 0;
+}
+.device__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.device__dot--r { background: #ff5f57; }
+.device__dot--y { background: #ffbd2e; }
+.device__dot--g { background: #28c840; }
+.device__content--laptop {
+  flex: 1;
+  background: var(--white);
+  border-radius: 0 0 6px 6px;
+  padding: 12px 14px;
+  gap: 8px;
+}
+.device__laptop-base {
+  width: 110%;
+  height: 10px;
+  margin-left: -5%;
+  margin-top: -1px;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 3px 0 rgba(15, 23, 42, 0.15);
+}
+.device__laptop-base::after {
+  content: '';
+  display: block;
+  width: 26%;
+  height: 3px;
+  margin: 1px auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0 0 4px 4px;
+}
+
+/* ===== TABLET ===== */
+.device--tablet {
+  width: 180px;
+}
+.device__tablet-frame {
+  width: 100%;
+  background: #0f172a;
+  border-radius: 18px;
+  padding: 8px;
   box-sizing: border-box;
   border: 1.5px solid rgba(255, 255, 255, 0.05);
 }
-.phone-mockup__notch {
+.device__tablet-screen {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(180deg, var(--white) 0%, var(--mist) 100%);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.device__content--tablet {
+  height: 100%;
+  padding: 12px 12px;
+  gap: 7px;
+}
+
+/* ===== PHONE ===== */
+.device--phone {
+  width: 110px;
+}
+.device__phone-frame {
+  position: relative;
+  width: 100%;
+  background: #0f172a;
+  border-radius: 18px;
+  padding: 6px;
+  box-sizing: border-box;
+  border: 1.5px solid rgba(255, 255, 255, 0.05);
+}
+.device__notch {
   position: absolute;
-  top: 12px;
+  top: 6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 110px;
-  height: 26px;
+  width: 38px;
+  height: 9px;
   background: #0f172a;
-  border-radius: 0 0 18px 18px;
+  border-radius: 0 0 7px 7px;
   z-index: 3;
 }
-.phone-mockup__screen {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, var(--white) 0%, var(--mist) 100%);
-  border-radius: 32px;
-  overflow: hidden;
+.device__phone-screen {
   position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.phone-mockup__bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 24px 6px;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink);
-}
-.phone-mockup__time {
-  font-variant-numeric: tabular-nums;
-}
-.phone-mockup__dots {
-  width: 32px;
-  height: 8px;
-  background: var(--ink);
-  border-radius: 4px;
-  opacity: 0.75;
-}
-.phone-mockup__content {
-  flex: 1;
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow: hidden;
-}
-.phone-mockup__title-row {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-.phone-mockup__card {
-  height: 50px;
-  background: var(--white);
-  border: 1px solid var(--ink-10);
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  background: linear-gradient(180deg, var(--white) 0%, var(--mist) 100%);
   border-radius: 12px;
-  box-shadow: 0 2px 6px -2px rgba(15, 23, 42, 0.06);
-}
-.phone-mockup__card--lg {
-  height: 120px;
-  background: linear-gradient(135deg, var(--electric-soft) 0%, rgba(96, 165, 250, 0.18) 100%);
-  border-color: rgba(37, 99, 235, 0.25);
-}
-.phone-mockup__card--md { height: 80px; }
-.phone-mockup__card--sm {
-  height: 64px;
-  flex: 1;
-}
-.phone-mockup__card-row {
+  overflow: hidden;
   display: flex;
-  gap: 10px;
+  flex-direction: column;
 }
-.phone-mockup__indicator {
+.device__phone-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 9px 4px;
+  font-family: var(--font-body);
+  font-size: 7px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.device__content--phone {
+  flex: 1;
+  padding: 4px 7px 12px;
+  gap: 5px;
+}
+.device__phone-indicator {
   position: absolute;
-  bottom: 8px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
+  width: 42px;
+  height: 2.5px;
   background: var(--ink);
   opacity: 0.4;
   border-radius: 2px;
+}
+
+@media (max-width: 880px) {
+  .phonepreview__stage { gap: 16px; }
+  .device--laptop { width: 280px; }
+  .device__laptop-screen { height: 175px; }
+  .device--tablet { width: 140px; }
+  .device--phone { width: 88px; }
 }
 
 @media (max-width: 600px) {
   .phonepreview { padding: 60px 0 70px; }
   .phonepreview__inner { padding: 0 24px; }
   .phonepreview__head { margin-bottom: 32px; }
-  .phonepreview__title { font-size: clamp(24px, 7vw, 34px); }
+  .phonepreview__title { font-size: clamp(22px, 6.5vw, 32px); }
   .phonepreview__lede { font-size: 14.5px; }
-  .phone-mockup { --phone-w: 240px; --phone-h: 500px; }
-  .phone-mockup__frame { padding: 10px; border-radius: 36px; }
-  .phone-mockup__screen { border-radius: 28px; }
-  .phone-mockup__notch { width: 90px; height: 22px; }
+  .phonepreview__stage { gap: 10px; padding: 20px 0 10px; }
+  .device--laptop { width: 200px; }
+  .device__laptop-screen { height: 125px; padding: 5px; }
+  .device__content--laptop { padding: 8px 10px; gap: 6px; }
+  .device--tablet { width: 100px; }
+  .device__tablet-frame { padding: 5px; border-radius: 13px; }
+  .device__content--tablet { padding: 8px 8px; gap: 5px; }
+  .device--phone { width: 62px; }
+  .device__phone-frame { padding: 4px; border-radius: 13px; }
+  .device__notch { width: 24px; height: 6px; }
+  .device__phone-bar { font-size: 5px; padding: 3px 5px 2px; }
+  .device__content--phone { padding: 2px 4px 8px; gap: 3px; }
 }
 
 /* ============================================
