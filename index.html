@@ -186,9 +186,9 @@
     </header>
 
     <main>
-      <!-- ============ HERO — AGENT EN VEDETTE ============ -->
+      <!-- ============ HERO — 2 COLONNES : PROMESSE + AGENT ============ -->
       <section class="hero" id="besoin">
-        <!-- Fond décoratif : gradient radial + grain SVG -->
+        <!-- Fond décoratif : gradient + grain + orbs -->
         <div class="hero__bg" aria-hidden="true">
           <div class="hero__gradient"></div>
           <div class="hero__grain"></div>
@@ -197,55 +197,71 @@
         </div>
 
         <div class="hero__inner">
-          <span class="hero__badge">
-            <span class="hero__badge-dot" aria-hidden="true"></span>
-            <span class="hero__badge-text">Agent IA en ligne</span>
-          </span>
-
-          <h1 class="hero__title">Quel site <span class="hero__title-accent">voulez-vous</span> ?</h1>
-
-          <p class="hero__sub">Décrivez votre projet, notre agent vous répond en moins de 2 secondes avec une recommandation chiffrée — délai, stack, budget.</p>
-
-          <!-- Formulaire prompt agent -->
-          <form class="hero__prompt" data-needs-form aria-label="Décrivez votre besoin">
-            <input
-              type="text"
-              class="hero__prompt-input"
-              data-needs-input
-              placeholder="Ex : J'ai un restaurant à Rolle, je veux des réservations en ligne…"
-              aria-label="Décrivez votre besoin"
-              autocomplete="off"
-            />
-            <button type="submit" class="hero__prompt-send" aria-label="Envoyer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="13 6 19 12 13 18"></polyline>
-              </svg>
-            </button>
-          </form>
-
-          <!-- Chips d'exemples -->
-          <div class="hero__chips" role="list">
-            <button type="button" class="hero__chip" role="listitem" data-need-prompt="J'ai besoin d'un site vitrine pour mon entreprise">Un site vitrine pro</button>
-            <button type="button" class="hero__chip" role="listitem" data-need-prompt="Je veux vendre en ligne avec Stripe">Vendre en ligne</button>
-            <button type="button" class="hero__chip" role="listitem" data-need-prompt="J'ai besoin d'un MVP / une app SaaS pour mon startup">Un MVP / une app SaaS</button>
-            <button type="button" class="hero__chip" role="listitem" data-need-prompt="Je veux refaire mon site qui ne convertit pas">Refaire mon site</button>
-            <button type="button" class="hero__chip" role="listitem" data-need-prompt="Mon site est trop lent, j'ai besoin d'optimisation Lighthouse et SEO">Optimiser vitesse / SEO</button>
-            <button type="button" class="hero__chip" role="listitem" data-need-prompt="Je veux améliorer mon taux de conversion sur mon site">Améliorer ma conversion</button>
-            <button type="button" class="hero__chip" role="listitem" data-need-prompt="J'ai besoin d'un projet sur mesure : plugin, intégration API ou automatisation">Un projet sur mesure</button>
+          <!-- ===== COLONNE GAUCHE : promesse SEO ===== -->
+          <div class="hero__promise">
+            <h1 class="hero__title">
+              Construisons <span class="hero__title-accent">votre projet</span> web.
+            </h1>
+            <p class="hero__sub">
+              Sites et applications sur mesure pour les PME suisses romandes. Performance, SEO et conversion inclus — livrés en 5 à 10 jours.
+            </p>
+            <ul class="hero__bullets" role="list">
+              <li><span class="hero__bullet-mark" aria-hidden="true">●</span> Design sur mesure</li>
+              <li><span class="hero__bullet-mark" aria-hidden="true">●</span> Performance &amp; SEO inclus</li>
+              <li><span class="hero__bullet-mark" aria-hidden="true">●</span> Livraison en 5 à 10 jours</li>
+            </ul>
+            <div class="hero__cta-row">
+              <a href="#audit" class="btn btn--dark hero__cta">Réserver un audit</a>
+              <span class="hero__cta-meta">Sans engagement · Réponse en 24 h</span>
+            </div>
           </div>
 
-          <!-- Zone de chat (vide par défaut, se remplit avec les réponses agent) -->
-          <div class="hero__chat" data-needs-chat aria-live="polite"></div>
+          <!-- ===== COLONNE DROITE : agent IA ===== -->
+          <aside class="agent" aria-labelledby="agent-title">
+            <header class="agent__head">
+              <span class="agent__badge">
+                <span class="agent__badge-dot" aria-hidden="true"></span>
+                <span class="agent__badge-text">Agent IA · en ligne</span>
+              </span>
+              <h2 id="agent-title" class="agent__title">Quel est votre besoin ?</h2>
+              <p class="agent__sub">Réponse chiffrée en moins de 2 secondes.</p>
+            </header>
 
-          <!-- Trust signals + lien humain -->
-          <ul class="hero__trust" aria-label="Garanties">
-            <li><span class="hero__trust-check" aria-hidden="true">✓</span> Sans engagement</li>
-            <li><span class="hero__trust-check" aria-hidden="true">✓</span> Réponse en 2 secondes</li>
-            <li><span class="hero__trust-check" aria-hidden="true">✓</span> Audit gratuit en 24h</li>
-          </ul>
+            <!-- Formulaire prompt -->
+            <form class="agent__prompt" data-needs-form aria-label="Décrivez votre besoin">
+              <label class="agent__prompt-label" for="agentInput">Votre projet</label>
+              <div class="agent__prompt-bar">
+                <input
+                  type="text"
+                  id="agentInput"
+                  class="agent__prompt-input"
+                  data-needs-input
+                  placeholder="Ex : Restaurant à Rolle, réservations en ligne…"
+                  aria-label="Décrivez votre besoin"
+                  autocomplete="off"
+                />
+                <button type="submit" class="agent__prompt-send" aria-label="Envoyer">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="13 6 19 12 13 18"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </form>
 
-          <p class="hero__note">Vous préférez parler à un humain ? <a href="#audit">Réservez 30 min avec nous →</a></p>
+            <!-- Chips d'exemples -->
+            <div class="agent__chips" role="list" aria-label="Exemples de besoins">
+              <button type="button" class="agent__chip" role="listitem" data-need-prompt="J'ai besoin d'un site vitrine pour mon entreprise">Site vitrine</button>
+              <button type="button" class="agent__chip" role="listitem" data-need-prompt="Je veux vendre en ligne avec Stripe">E-commerce</button>
+              <button type="button" class="agent__chip" role="listitem" data-need-prompt="J'ai besoin d'un MVP / une app SaaS pour mon startup">MVP / SaaS</button>
+              <button type="button" class="agent__chip" role="listitem" data-need-prompt="Je veux refaire mon site qui ne convertit pas">Refonte</button>
+              <button type="button" class="agent__chip" role="listitem" data-need-prompt="Mon site est trop lent, j'ai besoin d'optimisation Lighthouse et SEO">Vitesse / SEO</button>
+              <button type="button" class="agent__chip" role="listitem" data-need-prompt="J'ai besoin d'un projet sur mesure : plugin, intégration API ou automatisation">Sur mesure</button>
+            </div>
+
+            <!-- Zone chat (vide par défaut) -->
+            <div class="agent__chat" data-needs-chat aria-live="polite" aria-label="Conversation avec l'agent"></div>
+          </aside>
         </div>
       </section>
 
