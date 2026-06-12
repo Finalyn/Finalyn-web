@@ -21,10 +21,9 @@
   --mist: #F4F6FA;
   --white: #FFFFFF;
 
-  /* Fraunces (serif éditorial — titres/accents), Inter (corps neutre), Plus Jakarta Sans (heavy logo), JetBrains Mono (technique) */
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  /* Paire suisse expressive : Space Grotesk (titres caractère), Inter (corps neutre), JetBrains Mono (technique) */
+  --font-display: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heavy: 'Plus Jakarta Sans', 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, monospace;
 
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
@@ -157,13 +156,13 @@ button { font: inherit; cursor: pointer; }
 }
 
 .nav__logo {
-  font-family: var(--font-heavy); /* Plus Jakarta Sans 800 — réservé aux gros bold */
+  font-family: var(--font-display); /* Space Grotesk 700 — caractère grotesque */
   font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.035em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--ink);
 }
-.nav__logo-accent { color: var(--electric); font-weight: 800; }
+.nav__logo-accent { color: var(--electric); font-weight: 700; }
 
 .nav__links {
   display: none;
@@ -385,18 +384,15 @@ button { font: inherit; cursor: pointer; }
   max-width: 560px;
 }
 .hero__title {
-  font-family: var(--font-display); /* Fraunces serif éditorial */
+  font-family: var(--font-display); /* Space Grotesk grotesque suisse */
   font-size: clamp(40px, 4.8vw, 68px);
-  font-weight: 500;
-  font-variation-settings: 'opsz' 96; /* Fraunces optical size axis : display */
-  letter-spacing: -0.025em;
+  font-weight: 600;
+  letter-spacing: -0.035em;
   line-height: 1.02;
   color: var(--ink);
   margin: 0 0 22px;
 }
 .hero__title-accent {
-  font-style: italic;
-  font-weight: 500;
   background: linear-gradient(92deg, #60A5FA 0%, #2563EB 60%, #1D4FD8 100%);
   -webkit-background-clip: text;
           background-clip: text;
@@ -4308,13 +4304,13 @@ button { font: inherit; cursor: pointer; }
   gap: 18px;
 }
 .footer__brand {
-  font-family: var(--font-heavy); /* Plus Jakarta Sans 800 — rime visuelle avec le logo */
+  font-family: var(--font-display); /* Space Grotesk 700 — rime visuelle avec le logo nav */
   font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.035em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--ink);
 }
-.footer__brand-accent { color: var(--electric); font-weight: 800; }
+.footer__brand-accent { color: var(--electric); font-weight: 700; }
 .footer__tag {
   font-family: var(--font-body);
   font-size: 14px;
