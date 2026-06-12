@@ -443,95 +443,127 @@ button { font: inherit; cursor: pointer; }
 /* ===== COL DROITE — AGENT IA (carte glass + depth) ===== */
 .agent {
   position: relative;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 247, 253, 0.86) 100%);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
   border: 1.5px solid rgba(15, 23, 42, 0.08);
-  border-radius: 24px;
-  padding: 28px;
+  border-radius: 28px;
+  padding: 32px 30px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 24px 60px -24px rgba(15, 23, 42, 0.25),
-    0 8px 20px -12px rgba(37, 99, 235, 0.15);
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(37, 99, 235, 0.06),
+    0 32px 80px -28px rgba(15, 23, 42, 0.28),
+    0 12px 28px -14px rgba(37, 99, 235, 0.2);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease;
 }
+.agent:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(37, 99, 235, 0.08),
+    0 36px 90px -28px rgba(15, 23, 42, 0.32),
+    0 16px 36px -16px rgba(37, 99, 235, 0.28);
+}
+/* Halo bleu animé derrière */
 .agent::before {
-  /* halo bleu derrière la carte — rime visuelle */
   content: '';
   position: absolute;
-  inset: -2px;
-  border-radius: 26px;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.4) 0%, rgba(96, 165, 250, 0.15) 50%, transparent 100%);
+  inset: -3px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.5) 0%, rgba(96, 165, 250, 0.2) 50%, rgba(167, 139, 250, 0.15) 100%);
   z-index: -1;
-  filter: blur(20px);
-  opacity: 0.5;
+  filter: blur(24px);
+  opacity: 0.55;
+  animation: agent-halo 8s ease-in-out infinite alternate;
 }
+@keyframes agent-halo {
+  0%   { transform: scale(1) rotate(0deg); opacity: 0.4; }
+  100% { transform: scale(1.04) rotate(2deg); opacity: 0.65; }
+}
+/* Streak de lumière qui balaye en boucle (subtil) */
+.agent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent 0%, rgba(96, 165, 250, 0.18) 50%, transparent 100%);
+  transform: skewX(-18deg);
+  animation: agent-streak 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes agent-streak {
+  0%, 18%   { transform: translateX(0) skewX(-18deg); opacity: 0; }
+  35%       { opacity: 1; }
+  60%       { transform: translateX(450%) skewX(-18deg); opacity: 0; }
+  100%      { transform: translateX(450%) skewX(-18deg); opacity: 0; }
+}
+
+/* Sparkle signature en coin */
+.agent__sparkle {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 30px;
+  height: 30px;
+  color: var(--electric);
+  opacity: 0.65;
+  z-index: 2;
+  animation: agent-sparkle 3s ease-in-out infinite;
+  pointer-events: none;
+}
+.agent__sparkle svg { width: 100%; height: 100%; }
+@keyframes agent-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+  50%      { transform: scale(1.15) rotate(15deg); opacity: 0.9; }
+}
+
+/* Tous les enfants sont au-dessus du streak */
+.agent > * { position: relative; z-index: 1; }
 
 /* Header carte agent */
 .agent__head {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-.agent__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 11px;
-  background: var(--white);
-  border: 1px solid var(--ink-10);
-  border-radius: 999px;
-  align-self: flex-start;
-  box-shadow: 0 2px 8px -4px rgba(15, 23, 42, 0.08);
-}
-.agent__badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
-  animation: agent-pulse 1.8s ease-out infinite;
-}
-@keyframes agent-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
-  70%  { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
-.agent__badge-text {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--ink);
+  gap: 6px;
+  padding-right: 40px; /* laisse de la place au sparkle */
 }
 .agent__title {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  font-family: var(--font-body); /* Inter pour une lecture plus douce/marketing */
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
   color: var(--ink);
-  margin: 4px 0 0;
+  margin: 0;
 }
 .agent__sub {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.02em;
-  color: var(--ink-50);
+  font-family: var(--font-body); /* Inter italic, plus posé qu'un mono */
+  font-size: 14.5px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--ink-65);
   margin: 0;
 }
 
 /* Formulaire prompt */
-.agent__prompt { display: flex; flex-direction: column; gap: 6px; }
+.agent__prompt { display: flex; flex-direction: column; gap: 8px; }
 .agent__prompt-label {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
   font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ink-50);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-65);
 }
 .agent__prompt-bar {
   display: flex;
@@ -1421,10 +1453,38 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* ===== DEVICE COMMON ===== */
+.phonepreview__stage { perspective: 1400px; }
 .device {
   position: relative;
   flex-shrink: 0;
   filter: drop-shadow(0 18px 36px rgba(15, 23, 42, 0.22));
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    filter 0.5s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+/* Au hover : le device monte, scale légèrement, drop-shadow plus bleu + tilt 3D subtil */
+.device:hover {
+  transform: translateY(-14px) scale(1.04);
+  filter:
+    drop-shadow(0 30px 50px rgba(37, 99, 235, 0.28))
+    drop-shadow(0 12px 24px rgba(15, 23, 42, 0.18));
+}
+.device--laptop:hover { transform: translateY(-14px) scale(1.04) rotateX(2deg); }
+.device--tablet:hover { transform: translateY(-14px) scale(1.05) rotateY(-3deg); }
+.device--phone:hover  { transform: translateY(-14px) scale(1.06) rotateY(3deg); }
+/* Les écrans des devices "s'allument" subtilement au hover de leur device parent */
+.device:hover .device__hero,
+.device:hover .device__hero--md,
+.device:hover .device__hero--sm {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.45) 0%, rgba(37, 99, 235, 0.3) 100%);
+  border-color: rgba(37, 99, 235, 0.4);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .device { transition: none !important; }
+  .device:hover { transform: none !important; }
 }
 .device__content {
   flex: 1;

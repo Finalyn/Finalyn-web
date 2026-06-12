@@ -218,13 +218,17 @@
 
           <!-- ===== COLONNE DROITE : agent IA ===== -->
           <aside class="agent" aria-labelledby="agent-title">
+            <!-- Bordure animée + sparkle signature en coin -->
+            <span class="agent__sparkle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.5l2 5.5 5.5 2-5.5 2-2 5.5-2-5.5L4.5 10l5.5-2 2-5.5z"/>
+                <path d="M19 14l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z" opacity="0.55"/>
+              </svg>
+            </span>
+
             <header class="agent__head">
-              <span class="agent__badge">
-                <span class="agent__badge-dot" aria-hidden="true"></span>
-                <span class="agent__badge-text">Agent IA · en ligne</span>
-              </span>
-              <h2 id="agent-title" class="agent__title">Quel est votre besoin ?</h2>
-              <p class="agent__sub">Réponse chiffrée en moins de 2 secondes.</p>
+              <h2 id="agent-title" class="agent__title">Quel est votre besoin&nbsp;?</h2>
+              <p class="agent__sub">Une réponse chiffrée en moins de 2 secondes.</p>
             </header>
 
             <!-- Formulaire prompt -->
