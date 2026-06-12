@@ -314,13 +314,15 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
 }
 
-/* Fond décoratif (gradient + grain + orbs) inchangé */
+/* Fond décoratif (gradient + grain + orbs) — fondu vers le bas pour blender avec le body bg */
 .hero__bg {
   position: absolute;
   inset: 0;
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
 }
 .hero__gradient {
   position: absolute;
