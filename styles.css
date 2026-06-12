@@ -21,9 +21,11 @@
   --mist: #F4F6FA;
   --white: #FFFFFF;
 
-  --font-display: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  /* Fraunces (serif éditorial — titres/accents), Inter (corps neutre), Plus Jakarta Sans (heavy logo), JetBrains Mono (technique) */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
+  --font-heavy: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, monospace;
 
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
   --radius-pill: 999px;
@@ -155,13 +157,13 @@ button { font: inherit; cursor: pointer; }
 }
 
 .nav__logo {
-  font-family: var(--font-display);
+  font-family: var(--font-heavy); /* Plus Jakarta Sans 800 — réservé aux gros bold */
   font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   color: var(--ink);
 }
-.nav__logo-accent { color: var(--electric); }
+.nav__logo-accent { color: var(--electric); font-weight: 800; }
 
 .nav__links {
   display: none;
@@ -383,15 +385,18 @@ button { font: inherit; cursor: pointer; }
   max-width: 560px;
 }
 .hero__title {
-  font-family: var(--font-display);
+  font-family: var(--font-display); /* Fraunces serif éditorial */
   font-size: clamp(40px, 4.8vw, 68px);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-weight: 500;
+  font-variation-settings: 'opsz' 96; /* Fraunces optical size axis : display */
+  letter-spacing: -0.025em;
   line-height: 1.02;
   color: var(--ink);
   margin: 0 0 22px;
 }
 .hero__title-accent {
+  font-style: italic;
+  font-weight: 500;
   background: linear-gradient(92deg, #60A5FA 0%, #2563EB 60%, #1D4FD8 100%);
   -webkit-background-clip: text;
           background-clip: text;
@@ -4278,11 +4283,13 @@ button { font: inherit; cursor: pointer; }
 /* ============================================
    FOOTER
    ============================================ */
+/* Fond bleu très pâle (off-white blue) avec texte sombre */
 .footer {
-  background: #0f172a;
-  color: rgba(255, 255, 255, 0.85);
+  background: #EFF3FB;
+  color: var(--ink-80);
   padding: 80px 0 0;
-  margin-top: 40px;
+  margin-top: 0;
+  border-top: 1px solid rgba(37, 99, 235, 0.08);
 }
 .footer__inner {
   max-width: 1280px;
@@ -4301,17 +4308,18 @@ button { font: inherit; cursor: pointer; }
   gap: 18px;
 }
 .footer__brand {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--white);
+  font-family: var(--font-heavy); /* Plus Jakarta Sans 800 — rime visuelle avec le logo */
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--ink);
 }
-.footer__brand-accent { color: #60a5fa; }
+.footer__brand-accent { color: var(--electric); font-weight: 800; }
 .footer__tag {
+  font-family: var(--font-body);
   font-size: 14px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.6;
+  color: var(--ink-65);
   margin: 0;
   max-width: 380px;
 }
@@ -4326,24 +4334,24 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--ink-80);
   transition: color 0.2s ease, transform 0.2s ease;
   width: fit-content;
 }
-.footer__contact:hover { color: #60a5fa; transform: translateX(2px); }
+.footer__contact:hover { color: var(--electric); transform: translateX(2px); }
 .footer__contact svg { flex-shrink: 0; opacity: 0.85; }
-.footer__contact--wa:hover { color: #25D366; }
+.footer__contact--wa:hover { color: #128C7E; }
 .footer__contact--li:hover { color: #0A66C2; }
-.footer__contact--ig:hover { color: #E4405F; }
+.footer__contact--ig:hover { color: #C13584; }
 
 .footer__nav h4,
 .footer__meta h4 {
-  font-family: var(--font-display);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono); /* mono uppercase pour les titres de col — rime tech */
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ink-50);
   margin: 0 0 16px;
 }
 .footer__nav ul {
@@ -4355,28 +4363,32 @@ button { font: inherit; cursor: pointer; }
   gap: 10px;
 }
 .footer__nav a {
+  font-family: var(--font-body);
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--ink-80);
   transition: color 0.2s ease;
 }
-.footer__nav a:hover { color: #60a5fa; }
+.footer__nav a:hover { color: var(--electric); }
 
 .footer__meta p {
+  font-family: var(--font-body);
   margin: 0 0 8px;
   font-size: 13.5px;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--ink-65);
 }
 .footer__stamp {
   margin-top: 8px !important;
-  font-size: 12px !important;
-  color: rgba(255, 255, 255, 0.42) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 11.5px !important;
+  letter-spacing: 0.02em !important;
+  color: var(--ink-50) !important;
 }
 
 .footer__bottom {
   margin-top: 60px;
   padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(37, 99, 235, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -4384,9 +4396,11 @@ button { font: inherit; cursor: pointer; }
   flex-wrap: wrap;
 }
 .footer__bottom p {
+  font-family: var(--font-mono);
   margin: 0;
-  font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink-50);
 }
 .footer__legal {
   list-style: none;
@@ -4397,11 +4411,12 @@ button { font: inherit; cursor: pointer; }
   gap: 20px;
 }
 .footer__legal a {
+  font-family: var(--font-body);
   font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ink-50);
   transition: color 0.2s ease;
 }
-.footer__legal a:hover { color: #60a5fa; }
+.footer__legal a:hover { color: var(--electric); }
 
 @media (max-width: 1080px) {
   .footer__grid { grid-template-columns: 1.5fr 1fr 1fr; }
