@@ -40,9 +40,11 @@ body {
   background-color: #FBFBFD;
   background-image: url('assets/hero-bg-4.png');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* attachment: fixed cause des bugs avec les modals sur mobile (iOS Safari/Brave)
+     + iOS ne supporte pas vraiment fixed en cover. On reste en scroll par défaut. */
+  background-attachment: scroll;
   color: var(--ink);
   font-family: var(--font-body);
   font-weight: 400;
@@ -3144,13 +3146,11 @@ button { font: inherit; cursor: pointer; }
   .usecard:hover .usecard__inner { transform: none; }
   .usecard:not(.is-active):hover { transform: none !important; scale: 1; translate: 0 0; }
 
-  /* Modal : centré dans la viewport — dvh évite que la barre URL du mobile coupe le pop-up */
+  /* Modal mobile : on laisse le browser centrer le <dialog> nativement, juste ajuster la taille */
   .usecases__modal {
     width: calc(100vw - 24px);
     max-width: 460px;
     max-height: calc(100dvh - 32px);
-    margin: auto;
-    inset: 0;
     border-radius: 18px;
   }
   .usecases__modal-body { padding: 24px 20px; }
@@ -3510,13 +3510,11 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 600px) {
-  /* Modal : centré dans la viewport */
+  /* Modal mobile : centrage natif du <dialog> par le browser, juste ajuster la taille */
   .work-modal {
     width: calc(100vw - 24px);
     max-width: 440px;
     max-height: calc(100dvh - 32px);
-    margin: auto;
-    inset: 0;
     border-radius: 16px;
   }
   .work-modal__shot { aspect-ratio: 21 / 9; }
