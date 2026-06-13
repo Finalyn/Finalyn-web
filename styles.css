@@ -21,10 +21,12 @@
   --mist: #F4F6FA;
   --white: #FFFFFF;
 
-  /* Typo unifiée : Space Grotesk (titres caractère) + Inter (corps + tout le reste) */
-  --font-display: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Typo unifiée — système finalyn-ia : Inter partout, Fraunces pour wordmarks/accents serif, Plus Jakarta Sans pour wordmarks ultra-bold */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-heavy: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
   --radius-pill: 999px;
@@ -57,6 +59,7 @@ body {
   background: transparent;
   color: var(--ink);
   font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11"; /* variantes Inter — alt-1, alt-l (style finalyn-ia) */
   font-weight: 400;
   font-size: 16px;
   line-height: 1.55;
@@ -168,10 +171,10 @@ button { font: inherit; cursor: pointer; }
 }
 
 .nav__logo {
-  font-family: var(--font-display); /* Space Grotesk 700 — caractère grotesque */
+  font-family: var(--font-body); /* Inter weight 700 — style finalyn-ia brand */
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   color: var(--ink);
 }
 .nav__logo-accent { color: var(--electric); font-weight: 700; }
@@ -390,11 +393,11 @@ button { font: inherit; cursor: pointer; }
   max-width: 560px;
 }
 .hero__title {
-  font-family: var(--font-display); /* Space Grotesk grotesque suisse */
+  font-family: var(--font-display); /* Inter light/medium — style finalyn-ia */
   font-size: clamp(40px, 4.8vw, 68px);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.035em;
-  line-height: 1.02;
+  line-height: 1.05;
   color: var(--ink);
   margin: 0 0 22px;
 }
@@ -4366,10 +4369,10 @@ button { font: inherit; cursor: pointer; }
   gap: 18px;
 }
 .footer__brand {
-  font-family: var(--font-display); /* Space Grotesk 700 — rime visuelle avec le logo nav */
+  font-family: var(--font-body); /* Inter 700 — rime visuelle avec le logo nav */
   font-size: 26px;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   color: var(--ink);
 }
 .footer__brand-accent { color: var(--electric); font-weight: 700; }
