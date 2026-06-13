@@ -314,14 +314,8 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
 }
 
-/* Fond décoratif (gradient + grain + orbs) */
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-}
+/* Fond décoratif du hero supprimé — le hero utilise le même fond que le reste du site (body bg) pour une continuité parfaite */
+.hero__bg { display: none; }
 .hero__gradient {
   position: absolute;
   inset: -10%;
