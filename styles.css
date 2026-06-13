@@ -33,18 +33,28 @@
 
 /* ----- RESET ----- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
-body {
-  margin: 0;
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
   background-color: #FBFBFD;
+}
+
+/* Fond fixe en pseudo-élément du <html> — indépendant du scroll lock du <body> sur mobile */
+html::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background-image: url('assets/hero-bg-4.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  /* attachment: fixed cause des bugs avec les modals sur mobile (iOS Safari/Brave)
-     + iOS ne supporte pas vraiment fixed en cover. On reste en scroll par défaut. */
-  background-attachment: scroll;
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+  background: transparent;
   color: var(--ink);
   font-family: var(--font-body);
   font-weight: 400;
