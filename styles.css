@@ -5018,17 +5018,39 @@ button { font: inherit; cursor: pointer; }
   transition: color 0.2s ease;
 }
 .legal__back:hover { color: var(--electric); }
+.legal__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--electric);
+  margin-bottom: 14px;
+  text-transform: none;
+}
 .legal__title {
   font-family: var(--font-display);
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 600;
   letter-spacing: -0.025em;
   color: var(--ink);
-  margin: 0 0 12px;
+  margin: 0 0 18px;
   line-height: 1.05;
 }
+.legal__title-accent {
+  background: linear-gradient(92deg, #60A5FA 0%, #2563EB 60%, #1D4FD8 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
 .legal__lede {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-65);
+  margin: 0 0 12px;
+}
+.legal__meta {
+  font-size: 13px;
   color: var(--ink-50);
   margin: 0 0 32px;
 }
